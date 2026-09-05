@@ -131,7 +131,7 @@ body, button, input, textarea, select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body { background: var(--surface-primary); color: var(--text-primary); }
+body { background: rgb(var(--surface-primary)); color: rgb(var(--text-primary)); }
 
 /* Message body: a little larger, noticeably looser, held to a measure. */
 .markdown, .prose {
@@ -167,7 +167,7 @@ body { background: var(--surface-primary); color: var(--text-primary); }
 .user-turn > h2 {
   font-size: .8rem !important;
   font-weight: 500 !important;
-  color: var(--text-tertiary) !important;
+  color: rgb(var(--text-tertiary)) !important;
 }
 
 /* The empty-state greeting on a new chat: the site's headline voice. */
@@ -182,7 +182,7 @@ body { background: var(--surface-primary); color: var(--text-primary); }
 /* ===========================================================================
    4. SIDEBAR — half a step darker than the page, no dividing line, soft rows.
    =========================================================================== */
-nav, #chat-history-nav { background: var(--surface-primary-alt); }
+nav, #chat-history-nav { background: rgb(var(--surface-primary-alt)); }
 nav { border-right: none !important; }
 [data-testid="convo-item"] {
   border-radius: var(--sv-r-sm);
@@ -209,7 +209,7 @@ main .sticky.top-0.z-10 button {
    6. MESSAGES — you in a soft bubble; Solvane plain on the page.
    =========================================================================== */
 .user-turn .text-message {
-  background: var(--surface-secondary);
+  background: rgb(var(--surface-secondary));
   border-radius: 16px;
   border-bottom-right-radius: 5px;
   padding: 11px 15px;
@@ -218,7 +218,7 @@ main .sticky.top-0.z-10 button {
 }
 .user-turn .text-message .markdown, .user-turn .text-message .prose { font-size: 16px; line-height: 1.55; }
 .user-turn .text-message p { margin-block: 0; }
-html.dark .user-turn .text-message { background: var(--surface-tertiary); }
+html.dark .user-turn .text-message { background: rgb(var(--surface-tertiary)); }
 
 /* ===========================================================================
    7. COMPOSER — the one elevated surface. White, hairline, soft shadow, and a
@@ -226,29 +226,29 @@ html.dark .user-turn .text-message { background: var(--surface-tertiary); }
    =========================================================================== */
 form:has(#prompt-textarea) > div,
 div:has(> #prompt-textarea) {
-  background: var(--surface-dialog) !important;
-  border: 1px solid var(--border-medium) !important;
+  background: rgb(var(--surface-dialog)) !important;
+  border: 1px solid rgb(var(--border-medium)) !important;
   border-radius: var(--sv-r) !important;
   box-shadow: var(--sv-shadow);
   transition: border-color var(--sv-dur) var(--sv-ease), box-shadow var(--sv-dur) var(--sv-ease);
 }
 form:has(#prompt-textarea:focus) > div,
 div:has(> #prompt-textarea:focus) {
-  border-color: var(--border-heavy) !important;
+  border-color: rgb(var(--border-heavy)) !important;
   box-shadow: var(--sv-shadow), 0 0 0 3px rgba(31,77,61,.10);
 }
 html.dark form:has(#prompt-textarea:focus) > div,
 html.dark div:has(> #prompt-textarea:focus) { box-shadow: var(--sv-shadow), 0 0 0 3px rgba(127,200,164,.14); }
 #prompt-textarea { background: transparent !important; font-size: 16px; line-height: 1.6; }
-#prompt-textarea::placeholder { color: var(--text-tertiary); }
+#prompt-textarea::placeholder { color: rgb(var(--text-tertiary)); }
 
 #send-button, [data-testid="send-button"] {
   border-radius: 999px !important;
-  background: var(--surface-submit) !important;
+  background: rgb(var(--surface-submit)) !important;
   color: #fff !important;
   transition: background-color var(--sv-dur) var(--sv-ease), transform var(--sv-dur) var(--sv-ease), opacity var(--sv-dur);
 }
-#send-button:hover:not(:disabled), [data-testid="send-button"]:hover:not(:disabled) { background: var(--surface-submit-hover) !important; }
+#send-button:hover:not(:disabled), [data-testid="send-button"]:hover:not(:disabled) { background: rgb(var(--surface-submit-hover)) !important; }
 #send-button:active:not(:disabled) { transform: scale(.95); }
 #send-button:disabled, [data-testid="send-button"]:disabled { opacity: .3; }
 
@@ -257,24 +257,24 @@ html.dark div:has(> #prompt-textarea:focus) { box-shadow: var(--sv-shadow), 0 0 
    =========================================================================== */
 pre, pre > div, code[class*="language-"] {
   border-radius: 12px;
-  border: 1px solid var(--border-light);
+  border: 1px solid rgb(var(--border-light));
   font-size: 13.5px;
   line-height: 1.6;
 }
 html:not(.dark) pre, html:not(.dark) pre > div { background: #0f1512 !important; color: #d8e2dc; }
-:not(pre) > code { background: var(--surface-tertiary); border-radius: 5px; padding: .12em .36em; font-size: .89em; }
+:not(pre) > code { background: rgb(var(--surface-tertiary)); border-radius: 5px; padding: .12em .36em; font-size: .89em; }
 table { border-radius: 10px; overflow: hidden; font-size: 15px; }
-th, td { border-color: var(--border-light) !important; }
+th, td { border-color: rgb(var(--border-light)) !important; }
 [role="menu"], [role="dialog"], [role="listbox"] {
   border-radius: 14px !important;
-  border: 1px solid var(--border-light) !important;
+  border: 1px solid rgb(var(--border-light)) !important;
   box-shadow: var(--sv-shadow) !important;
 }
 
 /* ===========================================================================
    9. STATES — keyboard focus is a green ring; mouse focus is not.
    =========================================================================== */
-:focus-visible { outline: 2px solid var(--ring-primary); outline-offset: 2px; border-radius: 8px; }
+:focus-visible { outline: 2px solid rgb(var(--ring-primary)); outline-offset: 2px; border-radius: 8px; }
 :focus:not(:focus-visible) { outline: none; }
 button:disabled { cursor: not-allowed; }
 ::selection { background: var(--sv-green); color: #fff; }
@@ -295,29 +295,38 @@ button:disabled { cursor: not-allowed; }
    Login.tsx and SocialButton.tsx (v0.7.9).
    =========================================================================== */
 .relative.flex.min-h-screen.flex-col.bg-white,
-.w-authPageWidth { background: var(--surface-primary) !important; }
+.w-authPageWidth { background: rgb(var(--surface-primary)) !important; }
 html.dark .relative.flex.min-h-screen.flex-col,
-html.dark .w-authPageWidth { background: var(--surface-primary) !important; }
+html.dark .w-authPageWidth { background: rgb(var(--surface-primary)) !important; }
 h1.text-3xl.font-semibold {
   font-family: var(--sv-serif) !important;
   font-weight: 400 !important;
   font-size: 2.4rem !important;
   letter-spacing: -.02em;
-  color: var(--text-primary) !important;
+  color: rgb(var(--text-primary)) !important;
 }
 a[href*="/oauth/openid"] {
   justify-content: center;
   border-radius: 999px !important;
   border: 0 !important;
-  background: var(--surface-submit) !important;
+  background: rgb(var(--surface-submit)) !important;
   color: #fff !important;
   font-weight: 500;
   padding: 14px 22px !important;
   transition: background-color var(--sv-dur) var(--sv-ease), transform var(--sv-dur) var(--sv-ease);
 }
-a[href*="/oauth/openid"]:hover { background: var(--surface-submit-hover) !important; transform: translateY(-1px); }
+a[href*="/oauth/openid"]:hover { background: rgb(var(--surface-submit-hover)) !important; transform: translateY(-1px); }
 a[href*="/oauth/openid"] img { filter: brightness(0) invert(1); }
 
 /* Section 11 (body-level background layers) removed: the sky is now a
    component — see components/Chat/Sky.tsx. */
 main .sticky.top-0.z-10 { background: transparent !important; }
+
+/* 12. Sky visibility. rc2 paints `bg-presentation` as an opaque triplet colour,
+   which would hide the canvas that Presentation mounts as its first child.
+   Anything that follows the sky inside that wrapper goes transparent; the
+   wrapper itself keeps the colour, so nothing bleeds to the page behind. */
+.solvane-sky ~ .bg-presentation,
+.solvane-sky ~ * .bg-presentation,
+.solvane-sky ~ .bg-surface-chat,
+.solvane-sky ~ * .bg-surface-chat { background-color: transparent !important; }

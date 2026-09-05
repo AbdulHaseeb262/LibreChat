@@ -149,11 +149,11 @@
 
 html {
   --brand-purple: 126 34 206;
-  --presentation: #faf9f7;
-  --text-primary: #16150f;
-  --text-secondary: #4a4840;
-  --text-secondary-alt: #57544b;
-  --text-tertiary: #8a877c;
+  --presentation: 250 249 247;
+  --text-primary: 22 21 15;
+  --text-secondary: 74 72 64;
+  --text-secondary-alt: 87 84 75;
+  --text-tertiary: 138 135 124;
   --shimmer-dip: 129 130 134;
   --shimmer-dip-alpha: 0.18;
   --text-warning: var(--amber-700);
@@ -164,38 +164,38 @@ html {
   --accent-primary: 18 110 107;
   --accent-primary-hover: 10 79 83;
   --ring-primary: var(--gray-500);
-  --header-primary: #faf9f7;
-  --header-hover: rgba(22,21,15,.05);
-  --header-button-hover: rgba(22,21,15,.07);
-  --surface-active: rgba(22,21,15,.08);
-  --surface-active-alt: rgba(22,21,15,.07);
-  --surface-hover: rgba(22,21,15,.05);
-  --surface-hover-alt: rgba(22,21,15,.05);
+  --header-primary: 250 249 247;
+  --header-hover: 239 238 235;
+  --header-button-hover: 234 233 231;
+  --surface-active: 232 231 228;
+  --surface-active-alt: 234 233 231;
+  --surface-hover: 239 238 235;
+  --surface-hover-alt: 239 238 235;
   --surface-composer-hover: var(--gray-200);
-  --surface-primary: #faf9f7;
-  --surface-primary-alt: #f2f0eb;
-  --surface-primary-contrast: #ebe8e2;
-  --surface-secondary: #f2f0eb;
-  --surface-secondary-alt: #ebe8e2;
-  --surface-tertiary: #ebe8e2;
-  --surface-tertiary-alt: #e3e0d8;
-  --surface-dialog: #ffffff;
+  --surface-primary: 250 249 247;
+  --surface-primary-alt: 242 240 235;
+  --surface-primary-contrast: 235 232 226;
+  --surface-secondary: 242 240 235;
+  --surface-secondary-alt: 235 232 226;
+  --surface-tertiary: 235 232 226;
+  --surface-tertiary-alt: 227 224 216;
+  --surface-dialog: 255 255 255;
   --surface-overlay: var(--gray-500);
-  --surface-submit: #1f4d3d;
-  --surface-submit-hover: #183f31;
+  --surface-submit: 31 77 61;
+  --surface-submit-hover: 24 63 49;
   --surface-destructive: var(--red-700);
   --surface-destructive-hover: var(--red-800);
-  --surface-chat: #faf9f7;
+  --surface-chat: 250 249 247;
   --surface-code: var(--surface-primary-alt);
   --surface-qr: var(--white);
-  --border-light: rgba(22,21,15,.07);
+  --border-light: 234 233 231;
   --border-light-alpha: 1;
-  --border-medium-alt: rgba(22,21,15,.10);
-  --border-medium: rgba(22,21,15,.10);
+  --border-medium-alt: 227 226 224;
+  --border-medium: 227 226 224;
   --border-medium-alpha: 1;
-  --border-heavy: rgba(22,21,15,.16);
+  --border-heavy: 214 213 210;
   --border-heavy-alpha: 1;
-  --border-xheavy: rgba(22,21,15,.24);
+  --border-xheavy: 195 194 191;
   --border-xheavy-alpha: 1;
   --border-destructive: var(--red-600);
   --status-success: var(--green-700);
@@ -257,11 +257,11 @@ html {
 }
 .dark {
   --brand-purple: 171 104 255;
-  --presentation: #0f1712;
-  --text-primary: #edeae2;
-  --text-secondary: #b3afa4;
-  --text-secondary-alt: #a39f94;
-  --text-tertiary: #86837a;
+  --presentation: 15 23 18;
+  --text-primary: 237 234 226;
+  --text-secondary: 179 175 164;
+  --text-secondary-alt: 163 159 148;
+  --text-tertiary: 134 131 122;
   --shimmer-base: 255 255 255;
   --shimmer-base-alpha: 0.8;
   --shimmer-dip: 179 179 179;
@@ -273,35 +273,35 @@ html {
   --link-visited: 192 132 252;
   --accent-primary: 65 167 157;
   --accent-primary-hover: 109 200 185;
-  --header-primary: #0f1712;
-  --header-hover: rgba(255,255,255,.05);
-  --header-button-hover: rgba(255,255,255,.08);
-  --surface-active: rgba(255,255,255,.09);
-  --surface-active-alt: rgba(255,255,255,.08);
-  --surface-hover: rgba(255,255,255,.05);
-  --surface-hover-alt: rgba(255,255,255,.05);
+  --header-primary: 15 23 18;
+  --header-hover: 27 35 30;
+  --header-button-hover: 34 42 37;
+  --surface-active: 37 44 39;
+  --surface-active-alt: 34 42 37;
+  --surface-hover: 27 35 30;
+  --surface-hover-alt: 27 35 30;
   --surface-composer-hover: var(--gray-600);
-  --surface-primary: #0f1712;
-  --surface-primary-alt: #141d17;
-  --surface-primary-contrast: #1a251e;
-  --surface-secondary: #141d17;
-  --surface-secondary-alt: #1a251e;
-  --surface-tertiary: #1a251e;
-  --surface-tertiary-alt: #212d25;
-  --surface-dialog: #172119;
+  --surface-primary: 15 23 18;
+  --surface-primary-alt: 20 29 23;
+  --surface-primary-contrast: 26 37 30;
+  --surface-secondary: 20 29 23;
+  --surface-secondary-alt: 26 37 30;
+  --surface-tertiary: 26 37 30;
+  --surface-tertiary-alt: 33 45 37;
+  --surface-dialog: 23 33 25;
   --surface-overlay: 0 0 0;
-  --surface-submit: #2f7d5f;
-  --surface-submit-hover: #37916e;
+  --surface-submit: 47 125 95;
+  --surface-submit-hover: 55 145 110;
   --surface-destructive: var(--red-800);
   --surface-destructive-hover: var(--red-900);
-  --surface-chat: #0f1712;
+  --surface-chat: 15 23 18;
   --surface-code: var(--presentation);
   --surface-qr: var(--white);
-  --border-light: rgba(255,255,255,.06);
-  --border-medium-alt: rgba(255,255,255,.10);
-  --border-medium: rgba(255,255,255,.10);
-  --border-heavy: rgba(255,255,255,.18);
-  --border-xheavy: rgba(255,255,255,.26);
+  --border-light: 29 37 32;
+  --border-medium-alt: 39 46 42;
+  --border-medium: 39 46 42;
+  --border-heavy: 58 65 61;
+  --border-xheavy: 77 83 80;
   --border-destructive: var(--red-500);
   --status-success: var(--green-300);
   --status-success-subtle: var(--green-950);
@@ -2508,9 +2508,9 @@ html[data-input-modality='keyboard']
   position: relative;
   background: linear-gradient(
     90deg,
-    rgb(var(--shimmer-base, var(--text-primary)) / var(--shimmer-base-alpha, 1)) 25%,
+    rgb(var(--shimmer-base, rgb(var(--text-primary))) / var(--shimmer-base-alpha, 1)) 25%,
     rgb(var(--shimmer-dip) / var(--shimmer-dip-alpha, 1)) 50%,
-    rgb(var(--shimmer-base, var(--text-primary)) / var(--shimmer-base-alpha, 1)) 75%
+    rgb(var(--shimmer-base, rgb(var(--text-primary))) / var(--shimmer-base-alpha, 1)) 75%
   );
   background-size: 200% 100%;
   background-clip: text;
@@ -2548,14 +2548,14 @@ html[data-input-modality='keyboard']
   max-width: min(100%, 44rem);
   border-radius: 18px;
   border-bottom-right-radius: 6px;
-  background: var(--surface-secondary);
+  background: rgb(var(--surface-secondary));
   padding: 0.65rem 0.95rem;
 }
 .user-turn .text-message .markdown { width: auto; max-width: none; }
 .user-turn .text-message .markdown p { margin: 0; }
-.agent-turn > h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; color: var(--surface-submit); }
+.agent-turn > h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; color: rgb(var(--surface-submit)); }
 .dark .agent-turn > h2 { color: #7fc8a4; }
-.user-turn > h2 { font-size: 0.8rem; font-weight: 500; color: var(--text-tertiary); }
+.user-turn > h2 { font-size: 0.8rem; font-weight: 500; color: rgb(var(--text-tertiary)); }
 
 /* The mark breathes while its reply is being generated. */
 @keyframes solvane-glow {
@@ -2569,8 +2569,8 @@ html[data-input-modality='keyboard']
 .solvane-thinking {
   display: inline-block;
   font-size: 1rem;
-  color: var(--text-tertiary);
-  background: linear-gradient(90deg, var(--text-tertiary) 0%, var(--text-tertiary) 35%, #7fc8a4 50%, var(--text-tertiary) 65%, var(--text-tertiary) 100%);
+  color: rgb(var(--text-tertiary));
+  background: linear-gradient(90deg, rgb(var(--text-tertiary)) 0%, rgb(var(--text-tertiary)) 35%, #7fc8a4 50%, rgb(var(--text-tertiary)) 65%, rgb(var(--text-tertiary)) 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -2583,7 +2583,7 @@ html[data-input-modality='keyboard']
 }
 
 /* "Thought for Ns · Model": measured time to the first word. Quiet. */
-.solvane-meta { margin: 0 0 0.35rem; font-size: 0.8rem; color: var(--text-tertiary); letter-spacing: 0.01em; }
+.solvane-meta { margin: 0 0 0.35rem; font-size: 0.8rem; color: rgb(var(--text-tertiary)); letter-spacing: 0.01em; }
 
 /* Mobile: the bar is quiet and clear of the notch; the composer clear of the
    home indicator; the send button always reachable. */
