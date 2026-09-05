@@ -1,3 +1,4 @@
+import ThinkingLabel from '~/components/Chat/Messages/Content/ThinkingLabel';
 import { memo, useMemo, useState, useCallback, useRef, useId } from 'react';
 import { useAtomValue } from 'jotai';
 import { ContentTypes } from 'librechat-data-provider';

@@ -1,3 +1,4 @@
+import Sky from '~/components/Chat/Sky';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useAtomValue, useSetAtom } from 'jotai';
