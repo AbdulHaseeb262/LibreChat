@@ -44,7 +44,7 @@ function Header({
   }, [expanded]);
 
   return (
-    <div className="flex h-14 flex-shrink-0 items-center gap-2 border-b border-border-light px-2">
+    <div className="solvane-mobile-bar flex h-14 flex-shrink-0 items-center gap-2 px-2">
       <Button
         ref={closeRef}
         /**

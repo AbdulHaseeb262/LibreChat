@@ -167,6 +167,16 @@ function ExpandedPanel({
           </Button>
         }
       />
+      {/* Solvane: the brand at the top of the sidebar, in the serif. */}
+      <div className="flex items-center gap-2 px-2 pb-1 pt-1 font-serif text-xl tracking-tight text-text-primary">
+        <svg viewBox="0 0 64 64" aria-hidden="true" className="h-5 w-5">
+          <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+            <g transform="rotate(-25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+            <g transform="rotate(25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+          </g>
+        </svg>
+        <span>Solvane</span>
+      </div>
       <NewChatButton setActive={setActive} />
       <div className="mx-2 border-b border-border-light" />
       <div className="flex flex-col gap-1 overflow-y-auto">

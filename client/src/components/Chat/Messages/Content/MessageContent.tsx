@@ -11,6 +11,11 @@ import CollapsibleText from './Parts/CollapsibleText';
 import { useMessageContext } from '~/Providers';
 import EmptyText from './Parts/EmptyText';
 import MarkdownLite from './MarkdownLite';
+import ThinkingLabel from './ThinkingLabel';
+
+// Solvane: when each reply started waiting, and how long until its first token.
+const replyStarted = new Map<string, number>();
+const replyThought = new Map<string, number>();
 import EditMessage from './EditMessage';
 import Thinking from './Parts/Thinking';
 import { useLocalize } from '~/hooks';
@@ -104,6 +109,10 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
   );
 
   const content = useMemo(() => {
+    if (!isCreatedByUser && isLatestMessage && isSubmitting && text.length === 0) {
+      // Solvane: nothing has streamed yet — hold the reply's place with a word.
+      return <ThinkingLabel />;
+    }
     if (!isCreatedByUser) {
       return <Markdown content={text} isLatestMessage={isLatestMessage} />;
     }
@@ -111,10 +120,25 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
       return <MarkdownLite content={text} />;
     }
     return <>{text}</>;
-  }, [isCreatedByUser, enableUserMsgMarkdown, text, isLatestMessage]);
+  }, [isCreatedByUser, enableUserMsgMarkdown, text, isLatestMessage, isSubmitting]);
+
+  const rid = message.messageId ?? '';
+  if (!isCreatedByUser && isSubmitting && text.length === 0 && !replyStarted.has(rid)) {
+    replyStarted.set(rid, Date.now());
+  }
+  if (!isCreatedByUser && text.length > 0 && replyStarted.has(rid) && !replyThought.has(rid)) {
+    replyThought.set(rid, (Date.now() - (replyStarted.get(rid) ?? Date.now())) / 1000);
+  }
+  const thought = !isCreatedByUser ? replyThought.get(rid) : undefined;
 
   return (
     <Container message={message}>
+      {thought != null && thought >= 0.3 && (
+        <div className="solvane-meta" aria-label="Time to first word">
+          Thought for {thought < 10 ? thought.toFixed(1) : Math.round(thought)}s
+          {message.model ? <span> · {message.model}</span> : null}
+        </div>
+      )}
       <CollapsibleText enabled={isCreatedByUser && collapseLongUserMessages}>
         <div
           className={cn(

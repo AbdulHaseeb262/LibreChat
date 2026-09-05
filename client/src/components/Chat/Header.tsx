@@ -15,6 +15,7 @@ import ExportAndShareMenu from './ExportAndShareMenu';
 import SubagentThreadLink from './SubagentThreadLink';
 import BookmarkMenu from './Menus/BookmarkMenu';
 import AddMultiConvo from './AddMultiConvo';
+import PlanPill from './PlanPill';
 import { useHasAccess } from '~/hooks';
 import { cn } from '~/utils';
 import store from '~/store';
@@ -101,8 +102,10 @@ function Header({
       <div className={cn('flex flex-shrink-0 items-center gap-2', hiddenBehindNav)}>
         {hasAccessToTemporaryChat === true && <TemporaryChatIndicator />}
         {!isNewChat && <NewChat className="md:hidden" />}
+        <span className="md:hidden"><PlanPill /></span>
         <HeaderMenu startupConfig={startupConfig} className="md:hidden" />
         <div className="hidden items-center gap-2 md:flex">
+          <PlanPill />
           <ExportAndShareMenu isSharedButtonEnabled={startupConfig?.sharedLinksEnabled ?? false} />
           {hasAccessToTemporaryChat === true && <TemporaryChat />}
         </div>

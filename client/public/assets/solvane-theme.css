@@ -1,0 +1,323 @@
+/* ===========================================================================
+   Solvane — interface theme for LibreChat v0.7.9
+   ---------------------------------------------------------------------------
+   Injected into client/dist/index.html by librechat/Dockerfile. No markup
+   changes: this repo has no LibreChat frontend source, so this layer restyles
+   the shipped app so it reads as the same product as the marketing site.
+
+   The site's language, applied here: warm paper (#faf9f7), ink (#16150f), deep
+   green (#1f4d3d) used only where it means something, Instrument Serif for the
+   voice, Inter for the body, pills for actions, quiet tonal surfaces and almost
+   no lines. Opaque throughout — no glass.
+
+   SELECTORS ARE TAKEN FROM THE v0.7.9 SOURCE, not guessed:
+     .user-turn / .agent-turn   the message column, sender name in its h2
+     .message-render            a whole message row
+     .text-message, .markdown   message body
+     #prompt-textarea           composer input     #send-button  send
+     [data-testid="convo-item"] sidebar conversation (bg-surface-active-alt when active)
+     #chat-history-nav          sidebar history list
+     main .sticky.top-0.z-10    the chat header (a div painted with a literal bg-white)
+   The token layer (html / .dark / .gizmo variants) does the rest and is stable
+   across releases; .gizmo (0,1,0) outranks html (0,0,1), so tokens are set on
+   both or they silently lose.
+   =========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --sv-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --sv-sans:  "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sv-green: #1f4d3d;
+  --sv-green-2: #183f31;
+  --sv-mint:  #7fc8a4;
+  --sv-r: 18px;
+  --sv-r-sm: 10px;
+  --sv-shadow: 0 1px 2px rgba(22,21,15,.05), 0 20px 50px -28px rgba(22,21,15,.35);
+  --sv-ease: cubic-bezier(.22,1,.36,1);
+  --sv-dur: 140ms;
+  --sv-measure: 46rem;
+}
+
+/* ===========================================================================
+   1. TOKENS — LIGHT  (the site's paper)
+   =========================================================================== */
+html, html.gizmo {
+  --surface-primary:        #faf9f7;   /* app ground + conversation */
+  --surface-primary-alt:    #f2f0eb;   /* sidebar */
+  --surface-secondary:      #f2f0eb;
+  --surface-secondary-alt:  #ebe8e2;
+  --surface-tertiary:       #ebe8e2;
+  --surface-tertiary-alt:   #e3e0d8;
+  --surface-dialog:         #ffffff;
+  --surface-chat:           #faf9f7;
+  --presentation:           #faf9f7;
+  --header-primary:         #faf9f7;
+  --header-hover:           rgba(22,21,15,.05);
+  --header-button-hover:    rgba(22,21,15,.07);
+  --surface-hover:          rgba(22,21,15,.05);
+  --surface-hover-alt:      rgba(22,21,15,.05);
+  --surface-active:         rgba(22,21,15,.08);
+  --surface-active-alt:     rgba(22,21,15,.07);
+  --surface-submit:         var(--sv-green);
+  --surface-submit-hover:   var(--sv-green-2);
+  --surface-destructive:    #8c2f1d;
+  --surface-destructive-hover: #7a2717;
+
+  --text-primary:           #16150f;
+  --text-secondary:         #4a4840;
+  --text-secondary-alt:     #57544b;
+  --text-tertiary:          #8a877c;
+
+  --border-light:           rgba(22,21,15,.07);
+  --border-medium:          rgba(22,21,15,.10);
+  --border-medium-alt:      rgba(22,21,15,.10);
+  --border-heavy:           rgba(22,21,15,.16);
+  --border-xheavy:          rgba(22,21,15,.24);
+  --ring-primary:           var(--sv-green);
+  --accent:                 var(--sv-green);
+  --primary:                var(--sv-green);
+  --primary-foreground:     #ffffff;
+}
+
+/* ===========================================================================
+   2. TOKENS — DARK  (the site's footer green, pushed toward black)
+   =========================================================================== */
+html.dark, html.gizmo.dark {
+  --sv-green:   #7fc8a4;
+  --sv-green-2: #96d6b6;
+  --sv-shadow:  0 1px 2px rgba(0,0,0,.4), 0 24px 60px -30px rgba(0,0,0,.85);
+
+  --surface-primary:        #0f1712;
+  --surface-primary-alt:    #141d17;
+  --surface-secondary:      #141d17;
+  --surface-secondary-alt:  #1a251e;
+  --surface-tertiary:       #1a251e;
+  --surface-tertiary-alt:   #212d25;
+  --surface-dialog:         #172119;
+  --surface-chat:           #0f1712;
+  --presentation:           #0f1712;
+  --header-primary:         #0f1712;
+  --header-hover:           rgba(255,255,255,.05);
+  --header-button-hover:    rgba(255,255,255,.08);
+  --surface-hover:          rgba(255,255,255,.05);
+  --surface-hover-alt:      rgba(255,255,255,.05);
+  --surface-active:         rgba(255,255,255,.09);
+  --surface-active-alt:     rgba(255,255,255,.08);
+  --surface-submit:         #2f7d5f;
+  --surface-submit-hover:   #37916e;
+
+  --text-primary:           #edeae2;
+  --text-secondary:         #b3afa4;
+  --text-secondary-alt:     #a39f94;
+  --text-tertiary:          #86837a;
+
+  --border-light:           rgba(255,255,255,.06);
+  --border-medium:          rgba(255,255,255,.10);
+  --border-medium-alt:      rgba(255,255,255,.10);
+  --border-heavy:           rgba(255,255,255,.18);
+  --border-xheavy:          rgba(255,255,255,.26);
+  --ring-primary:           var(--sv-green);
+  --accent:                 var(--sv-green);
+  --primary:                #2f7d5f;
+  --primary-foreground:     #ffffff;
+}
+
+/* ===========================================================================
+   3. TYPOGRAPHY — Inter for the interface, the serif for the voice.
+   =========================================================================== */
+body, button, input, textarea, select {
+  font-family: var(--sv-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body { background: var(--surface-primary); color: var(--text-primary); }
+
+/* Message body: a little larger, noticeably looser, held to a measure. */
+.markdown, .prose {
+  font-size: 16.5px;
+  line-height: 1.7;
+  max-width: var(--sv-measure);
+}
+.markdown p, .prose p { margin-block: .8em; }
+.markdown h1, .markdown h2, .markdown h3, .markdown h4,
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--sv-serif);
+  font-weight: 400;
+  letter-spacing: -.015em;
+  line-height: 1.15;
+  margin-top: 1.5em;
+  margin-bottom: .45em;
+}
+.markdown h1, .prose h1 { font-size: 2rem; }
+.markdown h2, .prose h2 { font-size: 1.65rem; }
+.markdown h3, .prose h3 { font-size: 1.35rem; }
+.markdown strong, .prose strong { font-weight: 600; }
+.markdown a, .prose a { color: var(--sv-green); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+/* The sender names. Solvane speaks in the serif, in green — the same voice as
+   the site's headlines. The user's name stays quiet. */
+.agent-turn > h2 {
+  font-family: var(--sv-serif) !important;
+  font-weight: 400 !important;
+  font-size: 1.15rem !important;
+  letter-spacing: -.01em;
+  color: var(--sv-green) !important;
+}
+.user-turn > h2 {
+  font-size: .8rem !important;
+  font-weight: 500 !important;
+  color: var(--text-tertiary) !important;
+}
+
+/* The empty-state greeting on a new chat: the site's headline voice. */
+.transform-gpu.pb-16 .font-medium {
+  font-family: var(--sv-serif) !important;
+  font-weight: 400 !important;
+  letter-spacing: -.02em;
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem) !important;
+  line-height: 1.1;
+}
+
+/* ===========================================================================
+   4. SIDEBAR — half a step darker than the page, no dividing line, soft rows.
+   =========================================================================== */
+nav, #chat-history-nav { background: var(--surface-primary-alt); }
+nav { border-right: none !important; }
+[data-testid="convo-item"] {
+  border-radius: var(--sv-r-sm);
+  transition: background-color var(--sv-dur) var(--sv-ease);
+}
+[data-testid="convo-item"] a, [data-testid="convo-item"] span {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* ===========================================================================
+   5. HEADER — the header div is painted with a literal `bg-white`; put it back
+   on paper and make the model button a pill, like the site's controls.
+   =========================================================================== */
+main .sticky.top-0.z-10 {
+  background: var(--header-primary) !important;
+  box-shadow: none;
+}
+main .sticky.top-0.z-10 button {
+  border-radius: 999px;
+  transition: background-color var(--sv-dur) var(--sv-ease);
+}
+
+/* ===========================================================================
+   6. MESSAGES — you in a soft bubble; Solvane plain on the page.
+   =========================================================================== */
+.user-turn .text-message {
+  background: var(--surface-secondary);
+  border-radius: 16px;
+  border-bottom-right-radius: 5px;
+  padding: 11px 15px;
+  display: inline-flex;
+  max-width: min(100%, 44rem);
+}
+.user-turn .text-message .markdown, .user-turn .text-message .prose { font-size: 16px; line-height: 1.55; }
+.user-turn .text-message p { margin-block: 0; }
+html.dark .user-turn .text-message { background: var(--surface-tertiary); }
+
+/* ===========================================================================
+   7. COMPOSER — the one elevated surface. White, hairline, soft shadow, and a
+   green circle to send: the `.f-input` from the site's product frame.
+   =========================================================================== */
+form:has(#prompt-textarea) > div,
+div:has(> #prompt-textarea) {
+  background: var(--surface-dialog) !important;
+  border: 1px solid var(--border-medium) !important;
+  border-radius: var(--sv-r) !important;
+  box-shadow: var(--sv-shadow);
+  transition: border-color var(--sv-dur) var(--sv-ease), box-shadow var(--sv-dur) var(--sv-ease);
+}
+form:has(#prompt-textarea:focus) > div,
+div:has(> #prompt-textarea:focus) {
+  border-color: var(--border-heavy) !important;
+  box-shadow: var(--sv-shadow), 0 0 0 3px rgba(31,77,61,.10);
+}
+html.dark form:has(#prompt-textarea:focus) > div,
+html.dark div:has(> #prompt-textarea:focus) { box-shadow: var(--sv-shadow), 0 0 0 3px rgba(127,200,164,.14); }
+#prompt-textarea { background: transparent !important; font-size: 16px; line-height: 1.6; }
+#prompt-textarea::placeholder { color: var(--text-tertiary); }
+
+#send-button, [data-testid="send-button"] {
+  border-radius: 999px !important;
+  background: var(--surface-submit) !important;
+  color: #fff !important;
+  transition: background-color var(--sv-dur) var(--sv-ease), transform var(--sv-dur) var(--sv-ease), opacity var(--sv-dur);
+}
+#send-button:hover:not(:disabled), [data-testid="send-button"]:hover:not(:disabled) { background: var(--surface-submit-hover) !important; }
+#send-button:active:not(:disabled) { transform: scale(.95); }
+#send-button:disabled, [data-testid="send-button"]:disabled { opacity: .3; }
+
+/* ===========================================================================
+   8. CODE, TABLES, MENUS — the site's dark code tile; rounded, hairlined.
+   =========================================================================== */
+pre, pre > div, code[class*="language-"] {
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+html:not(.dark) pre, html:not(.dark) pre > div { background: #0f1512 !important; color: #d8e2dc; }
+:not(pre) > code { background: var(--surface-tertiary); border-radius: 5px; padding: .12em .36em; font-size: .89em; }
+table { border-radius: 10px; overflow: hidden; font-size: 15px; }
+th, td { border-color: var(--border-light) !important; }
+[role="menu"], [role="dialog"], [role="listbox"] {
+  border-radius: 14px !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: var(--sv-shadow) !important;
+}
+
+/* ===========================================================================
+   9. STATES — keyboard focus is a green ring; mouse focus is not.
+   =========================================================================== */
+:focus-visible { outline: 2px solid var(--ring-primary); outline-offset: 2px; border-radius: 8px; }
+:focus:not(:focus-visible) { outline: none; }
+button:disabled { cursor: not-allowed; }
+::selection { background: var(--sv-green); color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+@media (max-width: 767px) {
+  .markdown, .prose { font-size: 16px; max-width: 100%; }
+  form:has(#prompt-textarea) { padding-bottom: env(safe-area-inset-bottom, 0px); }
+}
+
+/* ===========================================================================
+   10. SIGN-IN SCREEN — LibreChat's auth layout paints itself with literal
+   Tailwind colours (bg-white / dark:bg-gray-900). Put it on our paper, give
+   the heading our voice, and make the one button — the door into the
+   product — the same green pill as the site. Selectors from AuthLayout.tsx,
+   Login.tsx and SocialButton.tsx (v0.7.9).
+   =========================================================================== */
+.relative.flex.min-h-screen.flex-col.bg-white,
+.w-authPageWidth { background: var(--surface-primary) !important; }
+html.dark .relative.flex.min-h-screen.flex-col,
+html.dark .w-authPageWidth { background: var(--surface-primary) !important; }
+h1.text-3xl.font-semibold {
+  font-family: var(--sv-serif) !important;
+  font-weight: 400 !important;
+  font-size: 2.4rem !important;
+  letter-spacing: -.02em;
+  color: var(--text-primary) !important;
+}
+a[href*="/oauth/openid"] {
+  justify-content: center;
+  border-radius: 999px !important;
+  border: 0 !important;
+  background: var(--surface-submit) !important;
+  color: #fff !important;
+  font-weight: 500;
+  padding: 14px 22px !important;
+  transition: background-color var(--sv-dur) var(--sv-ease), transform var(--sv-dur) var(--sv-ease);
+}
+a[href*="/oauth/openid"]:hover { background: var(--surface-submit-hover) !important; transform: translateY(-1px); }
+a[href*="/oauth/openid"] img { filter: brightness(0) invert(1); }
+
+/* Section 11 (body-level background layers) removed: the sky is now a
+   component — see components/Chat/Sky.tsx. */
+main .sticky.top-0.z-10 { background: transparent !important; }

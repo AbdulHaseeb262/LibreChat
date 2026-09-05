@@ -33,7 +33,7 @@ function getTextSizeClass(text: string | undefined | null) {
   }
 
   if (text.length < 56) {
-    return 'text-2xl sm:text-4xl';
+    return 'text-4xl sm:text-5xl';
   }
 
   if (text.length < 70) {
@@ -163,16 +163,12 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
                 <MessageCircleDashed className="h-2/3 w-2/3 text-text-primary" aria-hidden="true" />
               </div>
             ) : (
-              <ConvoIcon
-                agentsMap={agentsMap}
-                assistantMap={assistantMap}
-                conversation={conversation}
-                endpointsConfig={endpointsConfig}
-                containerClassName={containerClassName}
-                context="landing"
-                className="h-2/3 w-2/3 text-text-primary"
-                size={41}
-              />
+              <svg viewBox="0 0 64 64" aria-hidden="true" className="h-full w-full text-text-primary">
+                <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+                  <g transform="rotate(-25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+                  <g transform="rotate(25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+                </g>
+              </svg>
             )}
             {startupConfig?.showBirthdayIcon && (
               <TooltipAnchor
@@ -189,7 +185,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
               <SplitText
                 key={`split-text-${name}`}
                 text={name}
-                className={`${getTextSizeClass(name)} font-medium text-text-primary`}
+                className={`${getTextSizeClass(name)} font-serif font-normal tracking-tight text-text-primary`}
                 delay={50}
                 textAlign="center"
                 animationFrom={greetingAnimationFrom}
@@ -204,7 +200,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             <SplitText
               key={`split-text-${greetingText}${user?.name ? '-user' : ''}`}
               text={greetingText}
-              className={`${getTextSizeClass(greetingText)} font-medium text-text-primary`}
+              className={`${getTextSizeClass(greetingText)} font-serif font-normal tracking-tight text-text-primary`}
               delay={50}
               textAlign="center"
               animationFrom={greetingAnimationFrom}

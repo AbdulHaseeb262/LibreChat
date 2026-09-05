@@ -140,7 +140,8 @@ export default function Presentation({ children }: { children: React.ReactNode }
   const panelElement = artifactsElement ?? subagentElement;
 
   return (
-    <DragDropWrapper className="relative flex w-full grow overflow-hidden bg-presentation">
+    <DragDropWrapper className="relative isolate flex w-full grow overflow-hidden bg-presentation">
+      <Sky />
       <AppChatSurface>
         <ParentSubagentsProvider
           conversationId={conversationId ?? ''}

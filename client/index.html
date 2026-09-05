@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <base href="/" />
-    <meta name="theme-color" content="#171717" />
+    <meta name="theme-color" content="#faf9f7" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -11,10 +11,11 @@
       name="description"
       content="LibreChat - An open source chat application with support for multiple AI models"
     />
-    <title>LibreChat</title>
+    <title>Solvane</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="/assets/solvane-theme.css" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, interactive-widget=resizes-content"
@@ -33,14 +34,14 @@
       let backgroundColor;
 
       if (theme === 'dark') {
-        backgroundColor = '#0d0d0d';
+        backgroundColor = '#0f1712';
       } else if (theme === 'light') {
-        backgroundColor = '#ffffff';
+        backgroundColor = '#faf9f7';
       } else if (theme === 'system') {
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        backgroundColor = prefersDarkScheme ? '#0d0d0d' : '#ffffff';
+        backgroundColor = prefersDarkScheme ? '#0f1712' : '#faf9f7';
       } else {
-        backgroundColor = '#ffffff';
+        backgroundColor = '#faf9f7';
       }
 
       loadingContainerStyle.innerHTML = `
