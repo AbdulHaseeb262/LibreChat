@@ -43,37 +43,37 @@
    1. TOKENS — LIGHT  (the site's paper)
    =========================================================================== */
 html, html.gizmo {
-  --surface-primary:        #faf9f7;   /* app ground + conversation */
-  --surface-primary-alt:    #f2f0eb;   /* sidebar */
-  --surface-secondary:      #f2f0eb;
-  --surface-secondary-alt:  #ebe8e2;
-  --surface-tertiary:       #ebe8e2;
-  --surface-tertiary-alt:   #e3e0d8;
-  --surface-dialog:         #ffffff;
-  --surface-chat:           #faf9f7;
-  --presentation:           #faf9f7;
-  --header-primary:         #faf9f7;
-  --header-hover:           rgba(22,21,15,.05);
-  --header-button-hover:    rgba(22,21,15,.07);
-  --surface-hover:          rgba(22,21,15,.05);
-  --surface-hover-alt:      rgba(22,21,15,.05);
-  --surface-active:         rgba(22,21,15,.08);
-  --surface-active-alt:     rgba(22,21,15,.07);
+  --surface-primary: 250 249 247;   /* app ground + conversation */
+  --surface-primary-alt: 242 240 235;   /* sidebar */
+  --surface-secondary: 242 240 235;
+  --surface-secondary-alt: 235 232 226;
+  --surface-tertiary: 235 232 226;
+  --surface-tertiary-alt: 227 224 216;
+  --surface-dialog: 255 255 255;
+  --surface-chat: 250 249 247;
+  --presentation: 250 249 247;
+  --header-primary: 250 249 247;
+  --header-hover: 239 238 235;
+  --header-button-hover: 234 233 231;
+  --surface-hover: 239 238 235;
+  --surface-hover-alt: 239 238 235;
+  --surface-active: 232 231 228;
+  --surface-active-alt: 234 233 231;
   --surface-submit:         var(--sv-green);
   --surface-submit-hover:   var(--sv-green-2);
-  --surface-destructive:    #8c2f1d;
-  --surface-destructive-hover: #7a2717;
+  --surface-destructive: 140 47 29;
+  --surface-destructive-hover: 122 39 23;
 
-  --text-primary:           #16150f;
-  --text-secondary:         #4a4840;
-  --text-secondary-alt:     #57544b;
-  --text-tertiary:          #8a877c;
+  --text-primary: 22 21 15;
+  --text-secondary: 74 72 64;
+  --text-secondary-alt: 87 84 75;
+  --text-tertiary: 138 135 124;
 
-  --border-light:           rgba(22,21,15,.07);
-  --border-medium:          rgba(22,21,15,.10);
-  --border-medium-alt:      rgba(22,21,15,.10);
-  --border-heavy:           rgba(22,21,15,.16);
-  --border-xheavy:          rgba(22,21,15,.24);
+  --border-light: 234 233 231;
+  --border-medium: 227 226 224;
+  --border-medium-alt: 227 226 224;
+  --border-heavy: 214 213 210;
+  --border-xheavy: 195 194 191;
   --ring-primary:           var(--sv-green);
   --accent:                 var(--sv-green);
   --primary:                var(--sv-green);
@@ -88,35 +88,35 @@ html.dark, html.gizmo.dark {
   --sv-green-2: #96d6b6;
   --sv-shadow:  0 1px 2px rgba(0,0,0,.4), 0 24px 60px -30px rgba(0,0,0,.85);
 
-  --surface-primary:        #0f1712;
-  --surface-primary-alt:    #141d17;
-  --surface-secondary:      #141d17;
-  --surface-secondary-alt:  #1a251e;
-  --surface-tertiary:       #1a251e;
-  --surface-tertiary-alt:   #212d25;
-  --surface-dialog:         #172119;
-  --surface-chat:           #0f1712;
-  --presentation:           #0f1712;
-  --header-primary:         #0f1712;
-  --header-hover:           rgba(255,255,255,.05);
-  --header-button-hover:    rgba(255,255,255,.08);
-  --surface-hover:          rgba(255,255,255,.05);
-  --surface-hover-alt:      rgba(255,255,255,.05);
-  --surface-active:         rgba(255,255,255,.09);
-  --surface-active-alt:     rgba(255,255,255,.08);
-  --surface-submit:         #2f7d5f;
-  --surface-submit-hover:   #37916e;
+  --surface-primary: 15 23 18;
+  --surface-primary-alt: 20 29 23;
+  --surface-secondary: 20 29 23;
+  --surface-secondary-alt: 26 37 30;
+  --surface-tertiary: 26 37 30;
+  --surface-tertiary-alt: 33 45 37;
+  --surface-dialog: 23 33 25;
+  --surface-chat: 15 23 18;
+  --presentation: 15 23 18;
+  --header-primary: 15 23 18;
+  --header-hover: 27 35 30;
+  --header-button-hover: 34 42 37;
+  --surface-hover: 27 35 30;
+  --surface-hover-alt: 27 35 30;
+  --surface-active: 37 44 39;
+  --surface-active-alt: 34 42 37;
+  --surface-submit: 47 125 95;
+  --surface-submit-hover: 55 145 110;
 
-  --text-primary:           #edeae2;
-  --text-secondary:         #b3afa4;
-  --text-secondary-alt:     #a39f94;
-  --text-tertiary:          #86837a;
+  --text-primary: 237 234 226;
+  --text-secondary: 179 175 164;
+  --text-secondary-alt: 163 159 148;
+  --text-tertiary: 134 131 122;
 
-  --border-light:           rgba(255,255,255,.06);
-  --border-medium:          rgba(255,255,255,.10);
-  --border-medium-alt:      rgba(255,255,255,.10);
-  --border-heavy:           rgba(255,255,255,.18);
-  --border-xheavy:          rgba(255,255,255,.26);
+  --border-light: 29 37 32;
+  --border-medium: 39 46 42;
+  --border-medium-alt: 39 46 42;
+  --border-heavy: 58 65 61;
+  --border-xheavy: 77 83 80;
   --ring-primary:           var(--sv-green);
   --accent:                 var(--sv-green);
   --primary:                #2f7d5f;
@@ -131,7 +131,7 @@ body, button, input, textarea, select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body { background: rgb(var(--surface-primary)); color: rgb(var(--text-primary)); }
+html body, html.dark body { background: rgb(var(--surface-primary)); color: rgb(var(--text-primary)); }
 
 /* Message body: a little larger, noticeably looser, held to a measure. */
 .markdown, .prose {
@@ -197,7 +197,7 @@ nav { border-right: none !important; }
    on paper and make the model button a pill, like the site's controls.
    =========================================================================== */
 main .sticky.top-0.z-10 {
-  background: var(--header-primary) !important;
+  background: rgb(var(--header-primary)) !important;
   box-shadow: none;
 }
 main .sticky.top-0.z-10 button {
