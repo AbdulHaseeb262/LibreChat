@@ -98,18 +98,21 @@ export default function Message(props: TMessageProps) {
             aria-label={`message-${message.depth}-${messageId}`}
             className={cn(baseClasses.common, baseClasses.chat, 'message-render')}
           >
+            {/* Solvane: no avatar on your own messages — like Claude. */}
+            {!isCreatedByUser && (
             <div className="relative flex flex-shrink-0 flex-col items-center">
               <div className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full pt-0.5">
                 <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
               </div>
             </div>
+        )}
             <div
               className={cn(
                 'relative flex w-11/12 flex-col',
-                isCreatedByUser ? 'user-turn' : 'agent-turn',
+                isCreatedByUser ? 'user-turn items-end' : 'agent-turn',
               )}
             >
-              <h2 className={cn('select-none font-semibold text-text-primary', fontSize)}>
+              <h2 className={cn('sr-only select-none font-semibold', fontSize)}>
                 {name}
               </h2>
               <div className="flex flex-col gap-1">
