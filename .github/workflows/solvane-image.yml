@@ -35,3 +35,9 @@ jobs:
             ghcr.io/abdulhaseeb262/librechat:solvane-${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      # Tell Render to pull the new image. RENDER_DEPLOY_HOOK is the
+      # solvane-chat service's Deploy Hook URL (Render -> service -> Settings),
+      # stored as a repository secret. Skipped silently until it is set.
+      - name: Trigger Render deploy
+        if: ${{ secrets.RENDER_DEPLOY_HOOK != '' }}
+        run: curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}" > /dev/null && echo "Render deploy triggered"
