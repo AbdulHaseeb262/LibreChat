@@ -146,7 +146,13 @@ const MessageRender = memo(
         )}
 
         <div className="relative flex flex-shrink-0 flex-col items-center">
-          <div className="flex h-6 w-6 items-center justify-center overflow-hidden rounded-full">
+          <div
+            className={cn(
+              'flex h-6 w-6 items-center justify-center overflow-hidden rounded-full',
+              // Solvane: the mark breathes while this reply is on its way.
+              isSubmittingFamily && isLatestMessage && !msg.isCreatedByUser ? 'solvane-glow' : '',
+            )}
+          >
             <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
           </div>
         </div>

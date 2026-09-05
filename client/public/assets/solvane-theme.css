@@ -318,67 +318,6 @@ a[href*="/oauth/openid"] {
 a[href*="/oauth/openid"]:hover { background: var(--surface-submit-hover) !important; transform: translateY(-1px); }
 a[href*="/oauth/openid"] img { filter: brightness(0) invert(1); }
 
-/* ===========================================================================
-   11. LIVING GROUND — the page breathes; the content does not.
-   Presentation.tsx is the only thing that paints the chat ground
-   (bg-presentation) and the header is a literal bg-white div: those two go
-   transparent, the sidebar and composer stay solid, and two fixed layers on
-   body carry the motion. Transforms and opacity only — GPU-composited, no
-   filters, no repaints — so it stays fast on anything.
-     light: warm paper with a slow, soft light sweep
-     dark:  aurora — mint streaks drifting over the green-black, breathing
-   =========================================================================== */
-body { position: relative; z-index: 0; overflow-x: hidden; }
-.bg-presentation { background-color: transparent !important; }
+/* Section 11 (body-level background layers) removed: the sky is now a
+   component — see components/Chat/Sky.tsx. */
 main .sticky.top-0.z-10 { background: transparent !important; }
-
-body::before, body::after {
-  content: "";
-  position: fixed;
-  inset: -25%;
-  z-index: -1;
-  pointer-events: none;
-  will-change: transform, opacity;
-  transform: translate3d(0,0,0);
-}
-/* light */
-html:not(.dark) body::before {
-  background:
-    radial-gradient(55% 45% at 22% 18%, rgba(31,77,61,.10), transparent 62%),
-    radial-gradient(45% 40% at 82% 78%, rgba(127,200,164,.16), transparent 62%);
-  animation: sv-sweep 28s ease-in-out infinite alternate;
-}
-html:not(.dark) body::after {
-  background: radial-gradient(38% 30% at 58% 42%, rgba(255,255,255,.75), transparent 72%);
-  animation: sv-sweep-b 36s ease-in-out infinite alternate;
-}
-/* dark */
-html.dark body::before {
-  background:
-    linear-gradient(112deg, transparent 28%, rgba(127,200,164,.20) 40%, transparent 50%),
-    linear-gradient(98deg,  transparent 56%, rgba(63,143,107,.18) 66%, transparent 76%),
-    radial-gradient(50% 42% at 72% 18%, rgba(127,200,164,.16), transparent 70%);
-  animation: sv-aurora 24s ease-in-out infinite;
-}
-html.dark body::after {
-  background:
-    linear-gradient(120deg, transparent 44%, rgba(160,224,193,.22) 51%, transparent 58%),
-    radial-gradient(40% 36% at 24% 76%, rgba(47,125,95,.22), transparent 70%);
-  animation: sv-aurora-b 31s ease-in-out infinite, sv-breathe 9s ease-in-out infinite;
-}
-@keyframes sv-sweep   { from { transform: translate3d(-4%,-3%,0) scale(1.04); } to { transform: translate3d(4%,3%,0) scale(1.14); } }
-@keyframes sv-sweep-b { from { transform: translate3d(5%,4%,0); } to { transform: translate3d(-6%,-5%,0) scale(1.1); } }
-@keyframes sv-aurora   { 0%,100% { transform: translate3d(-6%,-4%,0) rotate(-5deg); } 50% { transform: translate3d(5%,3%,0) rotate(4deg); } }
-@keyframes sv-aurora-b { 0%,100% { transform: translate3d(6%,4%,0) rotate(5deg); } 50% { transform: translate3d(-5%,-4%,0) rotate(-3deg); } }
-@keyframes sv-breathe  { 0%,100% { opacity: .45; } 50% { opacity: .9; } }
-
-/* Theme switch: a soft crossfade instead of a hard cut. Scoped to the few
-   surfaces that change, never `*`. */
-body, nav, #chat-history-nav, .markdown, .prose,
-form:has(#prompt-textarea) > div, div:has(> #prompt-textarea) {
-  transition: background-color .35s ease, color .35s ease, border-color .35s ease;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body::before, body::after { animation: none !important; }
-}

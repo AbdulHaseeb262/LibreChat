@@ -2797,3 +2797,51 @@ html {
 .custom-style-2 {
   padding: 12px;
 }
+
+
+/* ===========================================================================
+   Solvane
+   =========================================================================== */
+/* The sky lives inside the presentation wrapper (see Chat/Sky.tsx); the
+   containers above it must not paint over it. */
+.solvane-sky { display: block; }
+
+/* You, in a soft bubble that fits its words. Solvane, plain on the page. */
+.user-turn .text-message {
+  display: inline-flex;
+  max-width: min(100%, 44rem);
+  border-radius: 18px;
+  border-bottom-right-radius: 6px;
+  background: var(--surface-secondary);
+  padding: 0.65rem 0.95rem;
+}
+.user-turn .text-message .markdown { width: auto; max-width: none; }
+.user-turn .text-message .markdown p { margin: 0; }
+.agent-turn > h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; color: var(--surface-submit); }
+.dark .agent-turn > h2 { color: #7fc8a4; }
+.user-turn > h2 { font-size: 0.8rem; font-weight: 500; color: var(--text-tertiary); }
+
+/* The mark breathes while its reply is being generated. */
+@keyframes solvane-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(127,200,164,0)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 8px rgba(127,200,164,0.95)) drop-shadow(0 0 18px rgba(47,125,95,0.6)); transform: scale(1.08); }
+}
+.solvane-glow { animation: solvane-glow 1.6s ease-in-out infinite; overflow: visible !important; }
+
+/* The status word: a light shimmer running through the text. */
+@keyframes solvane-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.solvane-thinking {
+  display: inline-block;
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  background: linear-gradient(90deg, var(--text-tertiary) 0%, var(--text-tertiary) 35%, #7fc8a4 50%, var(--text-tertiary) 65%, var(--text-tertiary) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: solvane-shimmer 2.2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .solvane-glow, .solvane-thinking { animation: none; }
+  .solvane-thinking { -webkit-text-fill-color: currentColor; background: none; }
+}

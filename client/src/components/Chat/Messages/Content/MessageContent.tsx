@@ -7,6 +7,7 @@ import Thinking from '~/components/Artifacts/Thinking';
 import { DelayedRender } from '~/components/ui';
 import { useChatContext } from '~/Providers';
 import MarkdownLite from './MarkdownLite';
+import ThinkingLabel from './ThinkingLabel';
 import EditMessage from './EditMessage';
 import { useLocalize } from '~/hooks';
 import Container from './Container';
@@ -82,7 +83,10 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
   );
 
   let content: React.ReactElement;
-  if (!isCreatedByUser) {
+  if (!isCreatedByUser && isLatestMessage && isSubmitting && text.length === 0) {
+    // Solvane: nothing has streamed yet — hold the reply's place with a word.
+    content = <ThinkingLabel />;
+  } else if (!isCreatedByUser) {
     content = <Markdown content={text} isLatestMessage={isLatestMessage} />;
   } else if (enableUserMsgMarkdown) {
     content = <MarkdownLite content={text} />;

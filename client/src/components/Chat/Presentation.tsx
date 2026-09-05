@@ -6,6 +6,7 @@ import { useDeleteFilesMutation } from '~/data-provider';
 import DragDropWrapper from '~/components/Chat/Input/Files/DragDropWrapper';
 import { EditorProvider, SidePanelProvider } from '~/Providers';
 import Artifacts from '~/components/Artifacts/Artifacts';
+import Sky from '~/components/Chat/Sky';
 import { SidePanelGroup } from '~/components/SidePanel';
 import { useSetFilesToDelete } from '~/hooks';
 import store from '~/store';
@@ -58,7 +59,8 @@ export default function Presentation({ children }: { children: React.ReactNode }
   const fullCollapse = useMemo(() => localStorage.getItem('fullPanelCollapse') === 'true', []);
 
   return (
-    <DragDropWrapper className="relative flex w-full grow overflow-hidden bg-presentation">
+    <DragDropWrapper className="relative isolate flex w-full grow overflow-hidden bg-presentation">
+      <Sky />
       <SidePanelProvider>
         <SidePanelGroup
           defaultLayout={defaultLayout}
