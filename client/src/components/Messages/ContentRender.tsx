@@ -147,7 +147,7 @@ const ContentRender = memo(function ContentRender({
           label={messageLabel ?? ''}
         />
       ),
-    [msg?.isCreatedByUser, iconData, assistant, agent, messageLabel],
+    [msg?.isCreatedByUser, iconData, assistant, agent, messageLabel, isSubmitting, isLatestMessage],
   );
 
   const { hasParallelContent } = useContentMetadata(msg);
