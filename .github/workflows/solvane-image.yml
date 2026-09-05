@@ -38,6 +38,11 @@ jobs:
       # Tell Render to pull the new image. RENDER_DEPLOY_HOOK is the
       # solvane-chat service's Deploy Hook URL (Render -> service -> Settings),
       # stored as a repository secret. Skipped silently until it is set.
+      # `secrets` is not allowed inside `if:` (it invalidates the whole workflow:
+      # "No jobs were run"), so the check happens in the shell instead.
       - name: Trigger Render deploy
-        if: ${{ secrets.RENDER_DEPLOY_HOOK != '' }}
-        run: curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}" > /dev/null && echo "Render deploy triggered"
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "RENDER_DEPLOY_HOOK not set — skipping"; exit 0; fi
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "Render deploy triggered"
