@@ -8,6 +8,11 @@ import { DelayedRender } from '~/components/ui';
 import { useChatContext } from '~/Providers';
 import MarkdownLite from './MarkdownLite';
 import ThinkingLabel from './ThinkingLabel';
+
+// Solvane: when each reply started waiting, and how long until its first token.
+// Module-level so it survives re-renders; empty after a reload (then no line).
+const replyStarted = new Map<string, number>();
+const replyThought = new Map<string, number>();
 import EditMessage from './EditMessage';
 import { useLocalize } from '~/hooks';
 import Container from './Container';
@@ -82,6 +87,15 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
     [message.messageId, latestMessage?.messageId],
   );
 
+  const id = message.messageId ?? '';
+  if (!isCreatedByUser && isSubmitting && text.length === 0 && !replyStarted.has(id)) {
+    replyStarted.set(id, Date.now());
+  }
+  if (!isCreatedByUser && text.length > 0 && replyStarted.has(id) && !replyThought.has(id)) {
+    replyThought.set(id, (Date.now() - (replyStarted.get(id) ?? Date.now())) / 1000);
+  }
+  const thought = !isCreatedByUser ? replyThought.get(id) : undefined;
+
   let content: React.ReactElement;
   if (!isCreatedByUser && isLatestMessage && isSubmitting && text.length === 0) {
     // Solvane: nothing has streamed yet — hold the reply's place with a word.
@@ -96,6 +110,12 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
 
   return (
     <Container message={message}>
+      {thought != null && thought >= 0.3 && (
+        <div className="solvane-meta" aria-label="Time to first word">
+          Thought for {thought < 10 ? thought.toFixed(1) : Math.round(thought)}s
+          {message.model ? <span> · {message.model}</span> : null}
+        </div>
+      )}
       <div
         className={cn(
           isSubmitting ? 'submitting' : '',

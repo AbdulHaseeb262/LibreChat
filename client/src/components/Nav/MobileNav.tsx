@@ -6,6 +6,7 @@ import type { TMessage } from 'librechat-data-provider';
 import type { Dispatch, SetStateAction } from 'react';
 import { useLocalize, useNewConvo } from '~/hooks';
 import store from '~/store';
+import PlanPill from '~/components/Chat/PlanPill';
 
 export default function MobileNav({
   setNavVisible,
@@ -19,7 +20,7 @@ export default function MobileNav({
   const { title = 'New Chat' } = conversation || {};
 
   return (
-    <div className="bg-token-main-surface-primary sticky top-0 z-10 flex min-h-[40px] items-center justify-center bg-white pl-1 dark:bg-gray-800 dark:text-white md:hidden">
+    <div className="solvane-mobile-bar sticky top-0 z-10 flex min-h-[44px] items-center justify-center bg-transparent pl-1 text-text-primary md:hidden">
       <button
         type="button"
         data-testid="mobile-header-new-chat-button"
@@ -49,9 +50,12 @@ export default function MobileNav({
           />
         </svg>
       </button>
-      <h1 className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-center text-sm font-normal">
+      <h1 className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-center font-serif text-base font-normal tracking-tight">
         {title ?? localize('com_ui_new_chat')}
       </h1>
+      <div className="mr-1 flex items-center">
+        <PlanPill />
+      </div>
       <button
         type="button"
         aria-label={localize('com_ui_new_chat')}

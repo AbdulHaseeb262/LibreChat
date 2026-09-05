@@ -2845,3 +2845,23 @@ html {
   .solvane-glow, .solvane-thinking { animation: none; }
   .solvane-thinking { -webkit-text-fill-color: currentColor; background: none; }
 }
+
+/* "Thought for Ns · Model": measured time to the first word. Quiet. */
+.solvane-meta { margin: 0 0 0.35rem; font-size: 0.8rem; color: var(--text-tertiary); letter-spacing: 0.01em; }
+
+/* Mobile: the bar is quiet and clear of the notch; the composer clear of the
+   home indicator; the send button always reachable. */
+@media (max-width: 767px) {
+  .solvane-mobile-bar { padding-top: env(safe-area-inset-top, 0px); backdrop-filter: none; }
+  form:has(#prompt-textarea) { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); }
+  .solvane-plan { padding: 0.3rem 0.6rem; font-size: 0.7rem; }
+  .user-turn .text-message { max-width: 88%; }
+}
+
+/* The mark turns slowly while it breathes. */
+@keyframes solvane-glow {
+  0%   { filter: drop-shadow(0 0 0 rgba(127,200,164,0)); transform: scale(1) rotate(0deg); }
+  50%  { filter: drop-shadow(0 0 8px rgba(127,200,164,0.95)) drop-shadow(0 0 18px rgba(47,125,95,0.6)); transform: scale(1.08) rotate(180deg); }
+  100% { filter: drop-shadow(0 0 0 rgba(127,200,164,0)); transform: scale(1) rotate(360deg); }
+}
+.solvane-glow { animation-duration: 2.4s; }
