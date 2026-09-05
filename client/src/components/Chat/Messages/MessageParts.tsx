@@ -61,7 +61,7 @@ function MessageParts(props: TMessageProps) {
     : (message?.text ?? '').length > 0;
   if (
     isCreatedByUser !== true && messageId && hasText && submissionStart != null &&
-    isSubmitting && messageId === latestMessageId && !solvaneThought.has(messageId)
+    isSubmitting && (isLast || messageId === latestMessageId) && !solvaneThought.has(messageId)
   ) {
     solvaneThought.set(messageId, Math.max(0, (Date.now() - submissionStart) / 1000));
   }
@@ -104,11 +104,11 @@ function MessageParts(props: TMessageProps) {
     () =>
       isCreatedByUser === true ? undefined : (
         <AuthorHeader
-          icon={<span className={isSubmitting && messageId === latestMessageId && isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
+          icon={<span className={isSubmitting && isCreatedByUser !== true && (isLast || messageId === latestMessageId) ? 'solvane-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
           label={name}
         />
       ),
-    [isCreatedByUser, iconData, assistant, agent, name, isSubmitting, messageId, latestMessageId],
+    [isCreatedByUser, iconData, assistant, agent, name, isSubmitting, messageId, latestMessageId, isLast],
   );
 
   const { hasParallelContent } = useContentMetadata(message);
@@ -126,7 +126,7 @@ function MessageParts(props: TMessageProps) {
       <div className="m-auto justify-center px-4 py-3 sm:px-0">
         <MessageRow
           id={messageId ?? ''}
-          icon={<span className={isSubmitting && messageId === latestMessageId && isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
+          icon={<span className={isSubmitting && isCreatedByUser !== true && (isLast || messageId === latestMessageId) ? 'solvane-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
           label={name}
           hoverLabel={getHeaderModelName(
             agent?.model,
