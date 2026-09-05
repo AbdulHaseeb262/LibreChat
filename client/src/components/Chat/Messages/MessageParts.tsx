@@ -21,6 +21,9 @@ import HoverButtons from './HoverButtons';
 import SubRow from './SubRow';
 import store from '~/store';
 
+// Solvane: seconds from submission to first text, per reply.
+const solvaneThought = new Map<string, number>();
+
 function MessageParts(props: TMessageProps) {
   const localize = useLocalize();
   const { message, siblingIdx, siblingCount, setSiblingIdx } = props;
@@ -46,7 +49,23 @@ function MessageParts(props: TMessageProps) {
   } = useMessageHelpers(props);
 
   const maximizeChatSpace = useRecoilValue(store.maximizeChatSpace);
+  // Solvane: "Thought for Ns" — measured from the submission start (rc2's own
+  // clock) to the first text of THIS reply. Module-level so it survives
+  // re-renders; empty after a reload, so the line simply does not show.
+  const submissionStart = useRecoilValue(store.submissionStartFamily(index));
   const { messageId = null, isCreatedByUser } = message ?? {};
+  const hasText = Array.isArray(message?.content)
+    ? (message?.content as Array<{ type?: string; text?: string | { value?: string } }>).some(
+        (c) => c?.type === 'text' && ((typeof c.text === 'string' ? c.text : c.text?.value) ?? '').length > 0,
+      )
+    : (message?.text ?? '').length > 0;
+  if (
+    isCreatedByUser !== true && messageId && hasText && submissionStart != null &&
+    isSubmitting && messageId === latestMessageId && !solvaneThought.has(messageId)
+  ) {
+    solvaneThought.set(messageId, Math.max(0, (Date.now() - submissionStart) / 1000));
+  }
+  const thought = messageId ? solvaneThought.get(messageId) : undefined;
 
   const name = useMemo(() => {
     let result = '';
@@ -85,11 +104,11 @@ function MessageParts(props: TMessageProps) {
     () =>
       isCreatedByUser === true ? undefined : (
         <AuthorHeader
-          icon={<MessageIcon iconData={iconData} assistant={assistant} agent={agent} />}
+          icon={<span className={isSubmitting && messageId === latestMessageId && isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
           label={name}
         />
       ),
-    [isCreatedByUser, iconData, assistant, agent, name],
+    [isCreatedByUser, iconData, assistant, agent, name, isSubmitting, messageId, latestMessageId],
   );
 
   const { hasParallelContent } = useContentMetadata(message);
@@ -107,7 +126,7 @@ function MessageParts(props: TMessageProps) {
       <div className="m-auto justify-center px-4 py-3 sm:px-0">
         <MessageRow
           id={messageId ?? ''}
-          icon={<MessageIcon iconData={iconData} assistant={assistant} agent={agent} />}
+          icon={<span className={isSubmitting && messageId === latestMessageId && isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
           label={name}
           hoverLabel={getHeaderModelName(
             agent?.model,
@@ -159,6 +178,12 @@ function MessageParts(props: TMessageProps) {
             </SubRow>
           }
         >
+          {thought != null && thought >= 0.3 && (
+            <div className="solvane-meta" aria-label="Time to first word">
+              Thought for {thought < 10 ? thought.toFixed(1) : Math.round(thought)}s
+              {message.model ? <span> · {message.model}</span> : null}
+            </div>
+          )}
           <ContentParts
             edit={edit}
             isLast={isLast}
