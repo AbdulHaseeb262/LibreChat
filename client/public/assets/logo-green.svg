@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Solvane">
+  <!-- Two lens (vesica) forms crossed on a near-vertical axis.
+       Refined pass: narrower lenses at a shallower angle, so the silhouette
+       stands taller than it is wide and the four points read cleanly; heavier
+       monoline with round joins so it survives down to 16px. -->
+    <g fill="none" stroke="#3f8f6b" stroke-width="5"
+     stroke-linecap="round" stroke-linejoin="round">
+    <g transform="rotate(-25 32 32)">
+      <path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z"/>
+    </g>
+    <g transform="rotate(25 32 32)">
+      <path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z"/>
+    </g>
+  </g>
+</svg>
