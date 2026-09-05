@@ -4,20 +4,16 @@ import { EModelEndpoint } from 'librechat-data-provider';
 import { useChatContext, useAgentsMapContext, useAssistantsMapContext } from '~/Providers';
 import { useGetEndpointsQuery, useGetStartupConfig } from '~/data-provider';
 import { BirthdayIcon, TooltipAnchor, SplitText } from '~/components';
-import ConvoIcon from '~/components/Endpoints/ConvoIcon';
 import { useLocalize, useAuthContext } from '~/hooks';
 import { getIconEndpoint, getEntity } from '~/utils';
 
-const containerClassName =
-  'shadow-stroke relative flex h-full items-center justify-center rounded-full bg-white dark:bg-presentation dark:text-white text-black dark:after:shadow-none ';
-
 function getTextSizeClass(text: string | undefined | null) {
   if (!text) {
-    return 'text-xl sm:text-2xl';
+    return 'text-3xl sm:text-4xl';
   }
 
   if (text.length < 40) {
-    return 'text-2xl sm:text-4xl';
+    return 'text-4xl sm:text-5xl';
   }
 
   if (text.length < 70) {
@@ -152,16 +148,13 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
           className={`flex ${textHasMultipleLines ? 'flex-col' : 'flex-col md:flex-row'} items-center justify-center gap-2`}
         >
           <div className={`relative size-10 justify-center ${textHasMultipleLines ? 'mb-2' : ''}`}>
-            <ConvoIcon
-              agentsMap={agentsMap}
-              assistantMap={assistantMap}
-              conversation={conversation}
-              endpointsConfig={endpointsConfig}
-              containerClassName={containerClassName}
-              context="landing"
-              className="h-2/3 w-2/3 text-black dark:text-white"
-              size={41}
-            />
+            {/* Solvane: the mark, not the endpoint icon. */}
+            <svg viewBox="0 0 64 64" aria-hidden="true" className="h-full w-full text-text-primary">
+              <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+                <g transform="rotate(-25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+                <g transform="rotate(25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+              </g>
+            </svg>
             {startupConfig?.showBirthdayIcon && (
               <TooltipAnchor
                 className="absolute bottom-[27px] right-2"
@@ -176,7 +169,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
               <SplitText
                 key={`split-text-${name}`}
                 text={name}
-                className={`${getTextSizeClass(name)} font-medium text-text-primary`}
+                className={`${getTextSizeClass(name)} font-serif font-normal tracking-tight text-text-primary`}
                 delay={50}
                 textAlign="center"
                 animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
@@ -191,7 +184,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             <SplitText
               key={`split-text-${greetingText}${user?.name ? '-user' : ''}`}
               text={greetingText}
-              className={`${getTextSizeClass(greetingText)} font-medium text-text-primary`}
+              className={`${getTextSizeClass(greetingText)} font-serif font-normal tracking-tight text-text-primary`}
               delay={50}
               textAlign="center"
               animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
@@ -203,9 +196,13 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             />
           )}
         </div>
-        {description && (
+        {description ? (
           <div className="animate-fadeIn mt-4 max-w-md text-center text-sm font-normal text-text-primary">
             {description}
+          </div>
+        ) : (
+          <div className="animate-fadeIn mt-3 max-w-md text-center text-base text-text-tertiary">
+            Two well-chosen models. One conversation.
           </div>
         )}
       </div>

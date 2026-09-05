@@ -69,6 +69,16 @@ export default function NewChat({
             </Button>
           }
         />
+        {/* Solvane: the brand lives at the top of the sidebar, in the serif. */}
+        <div className="flex items-center gap-2 font-serif text-xl tracking-tight text-text-primary">
+          <svg viewBox="0 0 64 64" aria-hidden="true" className="h-5 w-5">
+            <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+              <g transform="rotate(-25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+              <g transform="rotate(25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
+            </g>
+          </svg>
+          <span>Solvane</span>
+        </div>
         <div className="flex">
           {headerButtons}
           <TooltipAnchor

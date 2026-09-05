@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
+      serif: ['Instrument Serif', 'Georgia', 'serif'],
       mono: ['Roboto Mono', 'monospace'],
     },
     // fontFamily: {
