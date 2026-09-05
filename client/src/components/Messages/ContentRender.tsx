@@ -137,7 +137,13 @@ const ContentRender = memo(function ContentRender({
     () =>
       msg?.isCreatedByUser === true ? undefined : (
         <AuthorHeader
-          icon={<MessageIcon iconData={iconData} assistant={assistant} agent={agent} />}
+          icon={
+        // Solvane: the mark breathes while THIS reply is being generated. ContentRender
+        // is the path rc2 streams through; isSubmitting is already false for non-latest rows.
+        <span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}>
+          <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
+        </span>
+      }
           label={messageLabel ?? ''}
         />
       ),
@@ -153,7 +159,13 @@ const ContentRender = memo(function ContentRender({
   return (
     <MessageRow
       id={msg.messageId}
-      icon={<MessageIcon iconData={iconData} assistant={assistant} agent={agent} />}
+      icon={
+        // Solvane: the mark breathes while THIS reply is being generated. ContentRender
+        // is the path rc2 streams through; isSubmitting is already false for non-latest rows.
+        <span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}>
+          <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
+        </span>
+      }
       label={messageLabel ?? ''}
       hoverLabel={getHeaderModelName(
         agent?.model,
