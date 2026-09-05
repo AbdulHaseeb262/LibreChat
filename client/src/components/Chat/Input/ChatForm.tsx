@@ -2,7 +2,7 @@ import { memo, useRef, useMemo, useEffect, useState, useCallback } from 'react';
 import { useWatch } from 'react-hook-form';
 import { useRecoilState, useRecoilValue, useRecoilCallback } from 'recoil';
 import { Constants, isAssistantsEndpoint, isAgentsEndpoint } from 'librechat-data-provider';
-import { composerSurfaceClasses, composerSurfaceShadow, TextareaAutosize } from '@librechat/client';
+import { TextareaAutosize } from '@librechat/client';
 import type { TChatProject, TMessage, TConversation } from 'librechat-data-provider';
 import type { ExtendedFile, FileSetter, ConvoGenerator } from '~/common';
 import type { QueuedMessageContext } from '~/hooks/Chat/useSteering';
@@ -512,9 +512,9 @@ const ChatForm = memo(function ChatForm({
   const baseClasses = useMemo(
     () =>
       cn(
-        'md:py-3.5 m-0 w-full resize-none py-[13px] placeholder:text-text-tertiary bg-transparent [&:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)]',
+        'md:py-3.5 m-0 w-full resize-none py-[13px] text-[16px] leading-[1.55] placeholder:text-text-tertiary bg-transparent',
         isCollapsed ? 'max-h-[52px]' : 'max-h-[45vh] md:max-h-[55vh]',
-        isMoreThanThreeRows ? 'pl-5' : 'px-5',
+        isMoreThanThreeRows ? 'pl-4' : 'px-4',
       ),
     [isCollapsed, isMoreThanThreeRows],
   );
@@ -594,9 +594,11 @@ const ChatForm = memo(function ChatForm({
             <div
               onClick={handleContainerClick}
               className={cn(
-                'relative flex w-full flex-grow flex-col overflow-hidden rounded-t-3xl pb-4 sm:rounded-3xl sm:pb-0',
-                composerSurfaceClasses(),
-                isTextAreaFocused ? composerSurfaceShadow.focused : composerSurfaceShadow.blurred,
+                'relative flex w-full flex-grow flex-col overflow-hidden rounded-t-3xl pb-4 sm:rounded-[22px] sm:pb-0',
+                // Solvane composer: one card. Surface-dialog ground, a hairline that
+                // firms up on focus, elevation from .solvane-composer (light/dark differ).
+                'solvane-composer border bg-surface-dialog text-text-primary transition-[border-color,box-shadow] duration-200',
+                isTextAreaFocused ? 'solvane-composer-focus border-border-heavy' : 'border-border-medium',
                 /* Temporary-chat accent is a ChatForm-only override, not part of
                    the shared composer-surface decision. */
                 isTemporary && 'border-violet-800/60 bg-violet-950/10',
@@ -699,7 +701,7 @@ const ChatForm = memo(function ChatForm({
               )}
               <div
                 className={cn(
-                  '@container items-between flex gap-2 pb-2',
+                  '@container flex items-center gap-1.5 px-1 pb-2',
                   isRTL ? 'flex-row-reverse' : 'flex-row',
                 )}
               >

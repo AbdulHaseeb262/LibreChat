@@ -224,22 +224,9 @@ html.dark .user-turn .text-message { background: rgb(var(--surface-tertiary)); }
    7. COMPOSER — the one elevated surface. White, hairline, soft shadow, and a
    green circle to send: the `.f-input` from the site's product frame.
    =========================================================================== */
-form:has(#prompt-textarea) > div,
-div:has(> #prompt-textarea) {
-  background: rgb(var(--surface-dialog)) !important;
-  border: 1px solid rgb(var(--border-medium)) !important;
-  border-radius: var(--sv-r) !important;
-  box-shadow: var(--sv-shadow);
-  transition: border-color var(--sv-dur) var(--sv-ease), box-shadow var(--sv-dur) var(--sv-ease);
-}
-form:has(#prompt-textarea:focus) > div,
-div:has(> #prompt-textarea:focus) {
-  border-color: rgb(var(--border-heavy)) !important;
-  box-shadow: var(--sv-shadow), 0 0 0 3px rgba(31,77,61,.10);
-}
-html.dark form:has(#prompt-textarea:focus) > div,
-html.dark div:has(> #prompt-textarea:focus) { box-shadow: var(--sv-shadow), 0 0 0 3px rgba(127,200,164,.14); }
-#prompt-textarea { background: transparent !important; font-size: 16px; line-height: 1.6; }
+/* The card itself is styled in ChatForm.tsx (.solvane-composer). The old :has() rules
+   here matched BOTH the card and the textarea's wrapper, drawing a box inside a box. */
+#prompt-textarea { background: transparent !important; box-shadow: none !important; }
 #prompt-textarea::placeholder { color: rgb(var(--text-tertiary)); }
 
 #send-button, [data-testid="send-button"] {
