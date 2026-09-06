@@ -141,11 +141,14 @@ export default defineConfig(({ command }) => ({
       },
       includeAssets: [],
       manifest: {
-        name: 'LibreChat',
-        short_name: 'LibreChat',
+        // Solvane, not the upstream project: this is what an installed app is
+        // called on a home screen, and the teal was LibreChat's brand colour.
+        name: 'Solvane',
+        short_name: 'Solvane',
+        description: 'One place to think with AI.',
         display: 'standalone',
-        background_color: '#000000',
-        theme_color: '#009688',
+        background_color: '#0f1712',
+        theme_color: '#1f4d3d',
         icons: [
           {
             src: 'assets/favicon-32x32.png',
