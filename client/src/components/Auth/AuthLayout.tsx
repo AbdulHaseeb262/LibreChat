@@ -63,12 +63,19 @@ function AuthLayout({
     <div className="relative flex min-h-screen flex-col bg-surface-primary">
       <Banner />
       <BlinkAnimation active={isFetching}>
-        <div className="mt-6 h-10 w-full bg-cover">
+        {/* Solvane lockup: the mark beside the name, not a lone bare glyph.
+            The GREEN mark on purpose — assets/logo.svg swaps its stroke on the
+            OS's prefers-color-scheme, so on this light auth page under a dark
+            OS it drew near-white on near-white and vanished. */}
+        <div className="mt-10 flex w-full items-center justify-center gap-3">
           <img
-            src="assets/logo.svg"
-            className="h-full w-full object-contain"
-            alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'LibreChat' })}
+            src="/assets/logo-green.svg"
+            className="h-9 w-9"
+            alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'Solvane' })}
           />
+          <span className="font-serif text-3xl font-normal tracking-tight text-text-primary">
+            {startupConfig?.appTitle ?? 'Solvane'}
+          </span>
         </div>
       </BlinkAnimation>
       <DisplayError />

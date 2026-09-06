@@ -59,8 +59,8 @@ html, html.gizmo {
   --surface-hover-alt: 239 238 235;
   --surface-active: 232 231 228;
   --surface-active-alt: 234 233 231;
-  --surface-submit:         var(--sv-green);
-  --surface-submit-hover:   var(--sv-green-2);
+  --surface-submit: 31 77 61;          /* channel triplets: consumed as rgb(var(--token)) */
+  --surface-submit-hover: 24 63 49;
   --surface-destructive: 140 47 29;
   --surface-destructive-hover: 122 39 23;
 
@@ -74,9 +74,9 @@ html, html.gizmo {
   --border-medium-alt: 227 226 224;
   --border-heavy: 214 213 210;
   --border-xheavy: 195 194 191;
-  --ring-primary:           var(--sv-green);
-  --accent:                 var(--sv-green);
-  --primary:                var(--sv-green);
+  --ring-primary: 31 77 61;
+  --accent: 31 77 61;
+  --primary: 31 77 61;
   --primary-foreground:     #ffffff;
 }
 
@@ -117,9 +117,9 @@ html.dark, html.gizmo.dark {
   --border-medium-alt: 39 46 42;
   --border-heavy: 58 65 61;
   --border-xheavy: 77 83 80;
-  --ring-primary:           var(--sv-green);
-  --accent:                 var(--sv-green);
-  --primary:                #2f7d5f;
+  --ring-primary: 127 200 164;
+  --accent: 127 200 164;
+  --primary: 47 125 95;
   --primary-foreground:     #ffffff;
 }
 
