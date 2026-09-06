@@ -191,7 +191,7 @@ function UnifiedSidebar() {
           /** The close swipe reads horizontal touches here (the drawer holds no
            * horizontal scrollers), while pinch-zoom stays with the browser —
            * this full-viewport surface must not disable zooming entirely. */
-          'fixed inset-y-0 left-0 flex touch-pan-y touch-pinch-zoom flex-col bg-surface-primary-alt',
+          'fixed inset-y-0 left-0 flex touch-pan-y touch-pinch-zoom flex-col solvane-glass',
           expanded ? 'translate-x-0' : '-translate-x-full',
         )}
         style={{
@@ -215,7 +215,7 @@ function UnifiedSidebar() {
             />
             <nav
               id="chat-history-nav"
-              className="min-h-0 flex-1 overflow-hidden bg-surface-primary-alt"
+              className="min-h-0 flex-1 overflow-hidden solvane-glass"
             >
               <SidePanelNav links={links} />
             </nav>

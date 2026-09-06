@@ -1,4 +1,3 @@
-import Sky from '~/components/Chat/Sky';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useAtomValue, useSetAtom } from 'jotai';
@@ -141,8 +140,7 @@ export default function Presentation({ children }: { children: React.ReactNode }
   const panelElement = artifactsElement ?? subagentElement;
 
   return (
-    <DragDropWrapper className="relative isolate flex w-full grow overflow-hidden bg-presentation">
-      <Sky />
+    <DragDropWrapper className="relative flex w-full grow overflow-hidden">
       <AppChatSurface>
         <ParentSubagentsProvider
           conversationId={conversationId ?? ''}

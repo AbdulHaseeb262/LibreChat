@@ -597,7 +597,7 @@ const ChatForm = memo(function ChatForm({
                 'relative flex w-full flex-grow flex-col overflow-hidden rounded-t-3xl pb-4 sm:rounded-[22px] sm:pb-0',
                 // Solvane composer: one card. Surface-dialog ground, a hairline that
                 // firms up on focus, elevation from .solvane-composer (light/dark differ).
-                'solvane-composer border bg-surface-dialog text-text-primary transition-[border-color,box-shadow] duration-200',
+                'solvane-composer border text-text-primary transition-[border-color,box-shadow] duration-200',
                 isTextAreaFocused ? 'solvane-composer-focus border-border-heavy' : 'border-border-medium',
                 /* Temporary-chat accent is a ChatForm-only override, not part of
                    the shared composer-surface decision. */

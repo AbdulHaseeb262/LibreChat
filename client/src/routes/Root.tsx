@@ -38,6 +38,7 @@ import useDrawerSwipe from '~/hooks/Nav/useDrawerSwipe';
 import { useHealthCheck } from '~/data-provider';
 import { Banner } from '~/components/Banners';
 import store from '~/store';
+import Sky from '~/components/Chat/Sky';
 
 /** Isolates keyboard shortcut listeners so they only mount after auth. */
 function KeyboardShortcutsProvider() {
@@ -156,6 +157,9 @@ export default function Root() {
                     } as React.CSSProperties
                   }
                 >
+                  {/* Solvane: one sky behind the whole app, so the glass panes
+                      above it have something to reveal. */}
+                  <Sky />
                   <UnifiedSidebar />
                   <div
                     ref={paneRef}

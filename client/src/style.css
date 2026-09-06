@@ -2602,19 +2602,54 @@ html[data-input-modality='keyboard']
 }
 .solvane-glow { animation-duration: 2.4s; }
 
-/* Solvane composer elevation. The card's ground and hairline are Tailwind classes in
-   ChatForm.tsx; only the shadows live here because light and dark need different ones. */
+/* ===========================================================================
+   Solvane glass. The sky is mounted once behind the whole app, so the panes on
+   top of it are translucent and blurred: you see the starfield drift behind the
+   sidebar and the composer, which is what makes them read as glass rather than
+   as another flat grey box. Everything degrades to a solid surface where
+   backdrop-filter is unsupported.
+   =========================================================================== */
+.solvane-glass {
+  background-color: rgb(var(--surface-primary-alt) / 0.62);
+  backdrop-filter: blur(28px) saturate(1.4);
+  -webkit-backdrop-filter: blur(28px) saturate(1.4);
+}
+.dark .solvane-glass {
+  background-color: rgb(var(--surface-primary-alt) / 0.48);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .solvane-glass { background-color: rgb(var(--surface-primary-alt)); }
+  .dark .solvane-glass { background-color: rgb(var(--surface-primary-alt)); }
+}
+
+/* The composer is the one pane that sits over the conversation, so it is a
+   little more opaque than the sidebar — text being typed has to stay crisp. */
 .solvane-composer {
-  box-shadow: 0 1px 2px rgba(22, 21, 15, 0.04), 0 14px 36px -18px rgba(22, 21, 15, 0.22);
+  background-color: rgb(var(--surface-dialog) / 0.78);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  box-shadow: 0 1px 2px rgba(22, 21, 15, 0.04), 0 10px 30px -20px rgba(22, 21, 15, 0.25);
 }
 .solvane-composer.solvane-composer-focus {
-  box-shadow: 0 1px 2px rgba(22, 21, 15, 0.04), 0 14px 36px -18px rgba(22, 21, 15, 0.22),
+  box-shadow: 0 1px 2px rgba(22, 21, 15, 0.04), 0 10px 30px -20px rgba(22, 21, 15, 0.25),
     0 0 0 4px rgba(31, 77, 61, 0.08);
 }
 .dark .solvane-composer {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  background-color: rgb(var(--surface-primary-alt) / 0.66);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 12px 34px -22px rgba(0, 0, 0, 0.7);
 }
 .dark .solvane-composer.solvane-composer-focus {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 18px 40px -20px rgba(0, 0, 0, 0.7),
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 12px 34px -22px rgba(0, 0, 0, 0.7),
     0 0 0 4px rgba(127, 200, 164, 0.12);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .solvane-composer { background-color: rgb(var(--surface-dialog)); }
+  .dark .solvane-composer { background-color: rgb(var(--surface-primary-alt)); }
+}
+
+/* Sidebar rows, Codex-quiet: soft radius, no borders, the active row is a tint
+   rather than a block of colour. */
+.solvane-glass [data-testid='convo-item'] > *,
+.solvane-glass a[href^='/c/'] {
+  border-radius: 10px;
 }

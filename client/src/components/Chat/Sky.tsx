@@ -251,7 +251,7 @@ export default function Sky() {
     <canvas
       ref={ref}
       aria-hidden="true"
-      className="solvane-sky pointer-events-none absolute inset-0 -z-10 h-full w-full"
+      className="solvane-sky pointer-events-none absolute inset-0 -z-10 h-full w-full bg-presentation"
     />
   );
 }

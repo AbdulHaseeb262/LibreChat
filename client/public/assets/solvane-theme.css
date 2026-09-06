@@ -182,7 +182,7 @@ html body, html.dark body { background: rgb(var(--surface-primary)); color: rgb(
 /* ===========================================================================
    4. SIDEBAR — half a step darker than the page, no dividing line, soft rows.
    =========================================================================== */
-nav, #chat-history-nav { background: rgb(var(--surface-primary-alt)); }
+/* The sidebar ground is .solvane-glass now (style.css): translucent over the sky. */
 nav { border-right: none !important; }
 [data-testid="convo-item"] {
   border-radius: var(--sv-r-sm);
@@ -309,11 +309,5 @@ a[href*="/oauth/openid"] img { filter: brightness(0) invert(1); }
    component — see components/Chat/Sky.tsx. */
 main .sticky.top-0.z-10 { background: transparent !important; }
 
-/* 12. Sky visibility. rc2 paints `bg-presentation` as an opaque triplet colour,
-   which would hide the canvas that Presentation mounts as its first child.
-   Anything that follows the sky inside that wrapper goes transparent; the
-   wrapper itself keeps the colour, so nothing bleeds to the page behind. */
-.solvane-sky ~ .bg-presentation,
-.solvane-sky ~ * .bg-presentation,
-.solvane-sky ~ .bg-surface-chat,
-.solvane-sky ~ * .bg-surface-chat { background-color: transparent !important; }
+/* 12. The sky is mounted at the app shell (routes/Root.tsx) and paints the ground
+   itself, so nothing here needs to punch holes in surfaces any more. */
