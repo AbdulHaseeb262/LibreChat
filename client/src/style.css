@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -2553,7 +2553,7 @@ html[data-input-modality='keyboard']
 }
 .user-turn .text-message .markdown { width: auto; max-width: none; }
 .user-turn .text-message .markdown p { margin: 0; }
-.agent-turn > h2 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; color: rgb(var(--surface-submit)); }
+.agent-turn > h2 { font-family: "Source Serif 4", "Iowan Old Style", Georgia, serif; font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; color: rgb(var(--surface-submit)); }
 .dark .agent-turn > h2 { color: #7fc8a4; }
 .user-turn > h2 { font-size: 0.8rem; font-weight: 500; color: rgb(var(--text-tertiary)); }
 

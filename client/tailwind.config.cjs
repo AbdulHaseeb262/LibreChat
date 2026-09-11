@@ -17,7 +17,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
-      serif: ['Instrument Serif', 'Georgia', 'serif'],
+      serif: ['Source Serif 4', 'Iowan Old Style', 'Georgia', 'serif'],
       mono: ['Roboto Mono', 'monospace'],
     },
     // fontFamily: {
