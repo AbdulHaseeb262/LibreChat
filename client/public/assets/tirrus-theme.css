@@ -1,12 +1,12 @@
 /* ===========================================================================
-   Solvane — interface theme for LibreChat v0.7.9
+   Tirrus — interface theme for LibreChat v0.7.9
    ---------------------------------------------------------------------------
    Injected into client/dist/index.html by librechat/Dockerfile. No markup
    changes: this repo has no LibreChat frontend source, so this layer restyles
    the shipped app so it reads as the same product as the marketing site.
 
    The site's language, applied here: warm paper (#faf9f7), ink (#16150f), deep
-   green (#1f4d3d) used only where it means something, Source Serif 4 for the
+   green (#0a0a0a) used only where it means something, Source Serif 4 for the
    voice, Inter for the body, pills for actions, quiet tonal surfaces and almost
    no lines. Opaque throughout — no glass.
 
@@ -28,9 +28,9 @@
 :root {
   --sv-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
   --sv-sans:  "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --sv-green: #1f4d3d;
-  --sv-green-2: #183f31;
-  --sv-mint:  #7fc8a4;
+  --sv-green: #0a0a0a;
+  --sv-green-2: #2d2d2d;
+  --sv-mint:  #d4f53c;
   --sv-r: 18px;
   --sv-r-sm: 10px;
   --sv-shadow: 0 1px 2px rgba(22,21,15,.05), 0 20px 50px -28px rgba(22,21,15,.35);
@@ -43,40 +43,40 @@
    1. TOKENS — LIGHT  (the site's paper)
    =========================================================================== */
 html, html.gizmo {
-  --surface-primary: 250 249 247;   /* app ground + conversation */
-  --surface-primary-alt: 242 240 235;   /* sidebar */
-  --surface-secondary: 242 240 235;
-  --surface-secondary-alt: 235 232 226;
-  --surface-tertiary: 235 232 226;
-  --surface-tertiary-alt: 227 224 216;
+  --surface-primary: 255 255 255;   /* app ground + conversation */
+  --surface-primary-alt: 248 248 247;   /* sidebar */
+  --surface-secondary: 248 248 247;
+  --surface-secondary-alt: 241 241 239;
+  --surface-tertiary: 241 241 239;
+  --surface-tertiary-alt: 233 233 231;
   --surface-dialog: 255 255 255;
-  --surface-chat: 250 249 247;
-  --presentation: 250 249 247;
-  --header-primary: 250 249 247;
-  --header-hover: 239 238 235;
-  --header-button-hover: 234 233 231;
-  --surface-hover: 239 238 235;
-  --surface-hover-alt: 239 238 235;
-  --surface-active: 232 231 228;
-  --surface-active-alt: 234 233 231;
-  --surface-submit: 31 77 61;          /* channel triplets: consumed as rgb(var(--token)) */
-  --surface-submit-hover: 24 63 49;
+  --surface-chat: 255 255 255;
+  --presentation: 255 255 255;
+  --header-primary: 255 255 255;
+  --header-hover: 243 243 242;
+  --header-button-hover: 236 236 234;
+  --surface-hover: 243 243 242;
+  --surface-hover-alt: 243 243 242;
+  --surface-active: 234 234 232;
+  --surface-active-alt: 236 236 234;
+  --surface-submit: 10 10 10;          /* channel triplets: consumed as rgb(var(--token)) */
+  --surface-submit-hover: 45 45 45;
   --surface-destructive: 140 47 29;
   --surface-destructive-hover: 122 39 23;
 
-  --text-primary: 22 21 15;
-  --text-secondary: 74 72 64;
-  --text-secondary-alt: 87 84 75;
-  --text-tertiary: 138 135 124;
+  --text-primary: 10 10 10;
+  --text-secondary: 63 63 60;
+  --text-secondary-alt: 82 82 78;
+  --text-tertiary: 116 116 111;
 
-  --border-light: 234 233 231;
-  --border-medium: 227 226 224;
-  --border-medium-alt: 227 226 224;
-  --border-heavy: 214 213 210;
-  --border-xheavy: 195 194 191;
-  --ring-primary: 31 77 61;
-  --accent: 31 77 61;
-  --primary: 31 77 61;
+  --border-light: 236 236 234;
+  --border-medium: 229 229 227;
+  --border-medium-alt: 229 229 227;
+  --border-heavy: 213 213 210;
+  --border-xheavy: 192 192 188;
+  --ring-primary: 10 10 10;
+  --accent: 10 10 10;
+  --primary: 10 10 10;
   --primary-foreground:     #ffffff;
 }
 
@@ -84,42 +84,42 @@ html, html.gizmo {
    2. TOKENS — DARK  (the site's footer green, pushed toward black)
    =========================================================================== */
 html.dark, html.gizmo.dark {
-  --sv-green:   #7fc8a4;
-  --sv-green-2: #96d6b6;
+  --sv-green:   #d4f53c;
+  --sv-green-2: #e2fa6e;
   --sv-shadow:  0 1px 2px rgba(0,0,0,.4), 0 24px 60px -30px rgba(0,0,0,.85);
 
-  --surface-primary: 15 23 18;
-  --surface-primary-alt: 20 29 23;
-  --surface-secondary: 20 29 23;
-  --surface-secondary-alt: 26 37 30;
-  --surface-tertiary: 26 37 30;
-  --surface-tertiary-alt: 33 45 37;
-  --surface-dialog: 23 33 25;
-  --surface-chat: 15 23 18;
-  --presentation: 15 23 18;
-  --header-primary: 15 23 18;
-  --header-hover: 27 35 30;
-  --header-button-hover: 34 42 37;
-  --surface-hover: 27 35 30;
-  --surface-hover-alt: 27 35 30;
-  --surface-active: 37 44 39;
-  --surface-active-alt: 34 42 37;
-  --surface-submit: 47 125 95;
-  --surface-submit-hover: 55 145 110;
+  --surface-primary: 10 10 10;
+  --surface-primary-alt: 16 16 16;
+  --surface-secondary: 16 16 16;
+  --surface-secondary-alt: 22 22 21;
+  --surface-tertiary: 22 22 21;
+  --surface-tertiary-alt: 30 30 29;
+  --surface-dialog: 20 20 19;
+  --surface-chat: 10 10 10;
+  --presentation: 10 10 10;
+  --header-primary: 10 10 10;
+  --header-hover: 26 26 25;
+  --header-button-hover: 32 32 31;
+  --surface-hover: 26 26 25;
+  --surface-hover-alt: 26 26 25;
+  --surface-active: 36 36 35;
+  --surface-active-alt: 32 32 31;
+  --surface-submit: 212 245 60;
+  --surface-submit-hover: 226 250 110;
 
-  --text-primary: 237 234 226;
-  --text-secondary: 179 175 164;
-  --text-secondary-alt: 163 159 148;
-  --text-tertiary: 134 131 122;
+  --text-primary: 245 245 243;
+  --text-secondary: 176 176 171;
+  --text-secondary-alt: 160 160 155;
+  --text-tertiary: 128 128 123;
 
-  --border-light: 29 37 32;
-  --border-medium: 39 46 42;
-  --border-medium-alt: 39 46 42;
-  --border-heavy: 58 65 61;
-  --border-xheavy: 77 83 80;
-  --ring-primary: 127 200 164;
-  --accent: 127 200 164;
-  --primary: 47 125 95;
+  --border-light: 29 29 28;
+  --border-medium: 40 40 39;
+  --border-medium-alt: 40 40 39;
+  --border-heavy: 58 58 56;
+  --border-xheavy: 78 78 75;
+  --ring-primary: 212 245 60;
+  --accent: 212 245 60;
+  --primary: 212 245 60;
   --primary-foreground:     #ffffff;
 }
 
@@ -164,7 +164,7 @@ html body, html.dark body { background: rgb(var(--surface-primary)); color: rgb(
 .markdown strong, .prose strong { font-weight: 600; }
 .markdown a, .prose a { color: var(--sv-green); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
-/* The sender names. Solvane speaks in the serif, in green — the same voice as
+/* The sender names. Tirrus speaks in the serif, in green — the same voice as
    the site's headlines. The user's name stays quiet. */
 .agent-turn > h2 {
   font-family: var(--sv-serif) !important;
@@ -191,7 +191,7 @@ html body, html.dark body { background: rgb(var(--surface-primary)); color: rgb(
 /* ===========================================================================
    4. SIDEBAR — half a step darker than the page, no dividing line, soft rows.
    =========================================================================== */
-/* The sidebar ground is .solvane-glass now (style.css): translucent over the sky. */
+/* The sidebar ground is .tirrus-glass now (style.css): translucent over the sky. */
 nav { border-right: none !important; }
 [data-testid="convo-item"] {
   border-radius: var(--sv-r-sm);
@@ -215,7 +215,7 @@ main .sticky.top-0.z-10 button {
 }
 
 /* ===========================================================================
-   6. MESSAGES — you in a soft bubble; Solvane plain on the page.
+   6. MESSAGES — you in a soft bubble; Tirrus plain on the page.
    =========================================================================== */
 .user-turn .text-message {
   background: rgb(var(--surface-secondary));
@@ -238,7 +238,7 @@ html.dark .user-turn .text-message { background: rgb(var(--surface-tertiary)); }
    7. COMPOSER — the one elevated surface. White, hairline, soft shadow, and a
    green circle to send: the `.f-input` from the site's product frame.
    =========================================================================== */
-/* The card itself is styled in ChatForm.tsx (.solvane-composer). The old :has() rules
+/* The card itself is styled in ChatForm.tsx (.tirrus-composer). The old :has() rules
    here matched BOTH the card and the textarea's wrapper, drawing a box inside a box. */
 #prompt-textarea { background: transparent !important; box-shadow: none !important; }
 #prompt-textarea::placeholder { color: rgb(var(--text-tertiary)); }
@@ -278,7 +278,7 @@ th, td { border-color: rgb(var(--border-light)) !important; }
 :focus-visible { outline: 2px solid rgb(var(--ring-primary)); outline-offset: 2px; border-radius: 8px; }
 :focus:not(:focus-visible) { outline: none; }
 button:disabled { cursor: not-allowed; }
-::selection { background: var(--sv-green); color: #fff; }
+::selection { background: #d4f53c; color: #0a0a0a; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }

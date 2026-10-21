@@ -63,7 +63,7 @@ function AuthLayout({
     <div className="relative flex min-h-screen flex-col bg-surface-primary">
       <Banner />
       <BlinkAnimation active={isFetching}>
-        {/* Solvane lockup: the mark beside the name, not a lone bare glyph.
+        {/* Tirrus lockup: the mark beside the name, not a lone bare glyph.
             The GREEN mark on purpose — assets/logo.svg swaps its stroke on the
             OS's prefers-color-scheme, so on this light auth page under a dark
             OS it drew near-white on near-white and vanished. */}
@@ -71,10 +71,10 @@ function AuthLayout({
           <img
             src="/assets/logo-green.svg"
             className="h-9 w-9"
-            alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'Solvane' })}
+            alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'Tirrus' })}
           />
           <span className="font-serif text-3xl font-normal tracking-tight text-text-primary">
-            {startupConfig?.appTitle ?? 'Solvane'}
+            {startupConfig?.appTitle ?? 'Tirrus'}
           </span>
         </div>
       </BlinkAnimation>

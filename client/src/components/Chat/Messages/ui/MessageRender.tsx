@@ -155,7 +155,7 @@ const MessageRender = memo(function MessageRender({
   return (
     <MessageRow
       id={msg.messageId}
-      icon={<span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
+      icon={<span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'tirrus-glow inline-flex' : 'inline-flex'}><MessageIcon iconData={iconData} assistant={assistant} agent={agent} /></span>}
       label={messageLabel ?? ''}
       hoverLabel={getHeaderModelName(
         agent?.model,

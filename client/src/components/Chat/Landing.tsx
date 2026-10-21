@@ -164,10 +164,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
               </div>
             ) : (
               <svg viewBox="0 0 64 64" aria-hidden="true" className="h-full w-full text-text-primary">
-                <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
-                  <g transform="rotate(-25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
-                  <g transform="rotate(25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
-                </g>
+                <path fillRule="evenodd" fill="currentColor" d="M3 32a19 19 0 1 0 38 0a19 19 0 1 0-38 0zM23 32a19 19 0 1 0 38 0a19 19 0 1 0-38 0z" />
               </svg>
             )}
             {startupConfig?.showBirthdayIcon && (

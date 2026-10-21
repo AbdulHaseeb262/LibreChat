@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Solvane — the status word while a reply is on its way.
+ * Tirrus — the status word while a reply is on its way.
  * Shown in the reply's place from the moment you send until the first token
  * streams in. Cycles through a small set of verbs with a light shimmer; the
  * verb changes on a fixed beat so it reads as alive rather than random.
@@ -30,7 +30,7 @@ export default function ThinkingLabel() {
   }, []);
 
   return (
-    <span className="solvane-thinking" aria-live="polite">
+    <span className="tirrus-thinking" aria-live="polite">
       {VERBS[i]}…
     </span>
   );

@@ -14,7 +14,7 @@ type EmptyTextPartProps = {
 };
 
 /**
- * Solvane: what stands in for the reply between sending and the first token.
+ * Tirrus: what stands in for the reply between sending and the first token.
  *
  * Upstream shows a pulsing dot (`.result-thinking`); we show a cycling word.
  * Only the word — the two together read as a stray bullet parked in front of

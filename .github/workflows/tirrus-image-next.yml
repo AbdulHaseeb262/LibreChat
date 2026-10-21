@@ -1,13 +1,14 @@
-# Builds the Solvane chat image from THIS branch and pushes it to GHCR.
-# Render pulls ghcr.io/abdulhaseeb262/librechat:solvane. Every push to the
-# `solvane` branch is a new image; Render redeploys on the tag it tracks.
-name: solvane-image
+# Builds the Tirrus chat image from THIS branch and pushes it to GHCR.
+# Render pulls ghcr.io/abdulhaseeb262/librechat:solvane-next (the tag and the
+# branch keep their pre-rename names; renaming them means re-pointing Render).
+# Every push to `solvane-0.8` is a new image.
+name: tirrus-image
 on:
   push:
     branches: [solvane-0.8]
   workflow_dispatch:
 concurrency:
-  group: solvane-image-next
+  group: tirrus-image-next
   cancel-in-progress: true
 permissions:
   contents: read

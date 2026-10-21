@@ -138,9 +138,9 @@ const ContentRender = memo(function ContentRender({
       msg?.isCreatedByUser === true ? undefined : (
         <AuthorHeader
           icon={
-        // Solvane: the mark breathes while THIS reply is being generated. ContentRender
+        // Tirrus: the mark breathes while THIS reply is being generated. ContentRender
         // is the path rc2 streams through; isSubmitting is already false for non-latest rows.
-        <span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}>
+        <span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'tirrus-glow inline-flex' : 'inline-flex'}>
           <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
         </span>
       }
@@ -160,9 +160,9 @@ const ContentRender = memo(function ContentRender({
     <MessageRow
       id={msg.messageId}
       icon={
-        // Solvane: the mark breathes while THIS reply is being generated. ContentRender
+        // Tirrus: the mark breathes while THIS reply is being generated. ContentRender
         // is the path rc2 streams through; isSubmitting is already false for non-latest rows.
-        <span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'solvane-glow inline-flex' : 'inline-flex'}>
+        <span className={isSubmitting && isLatestMessage && msg.isCreatedByUser !== true ? 'tirrus-glow inline-flex' : 'inline-flex'}>
           <MessageIcon iconData={iconData} assistant={assistant} agent={agent} />
         </span>
       }

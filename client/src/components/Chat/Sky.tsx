@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * Solvane — the ground behind the whole app.
+ * Tirrus — the ground behind the whole app.
  *
  * This used to be an animated starfield. It was striking for ten seconds and
  * tiring for the rest of the day: a surface you read on should not move while
@@ -40,10 +40,10 @@ export default function Sky() {
       ctx.clearRect(0, 0, w, h);
 
       const dark = document.documentElement.classList.contains('dark');
-      // Upper right, the warmer pool; lower left, a cooler green one. Both sit
+      // Upper right, a faint lime pool; lower left, a neutral one. Both sit
       // far below the threshold where they would read as "a background".
-      const warm = dark ? 'rgba(127,200,164,0.055)' : 'rgba(31,77,61,0.030)';
-      const cool = dark ? 'rgba(47,125,95,0.045)' : 'rgba(31,77,61,0.018)';
+      const warm = dark ? 'rgba(212,245,60,0.045)' : 'rgba(150,180,20,0.035)';
+      const cool = dark ? 'rgba(255,255,255,0.03)' : 'rgba(10,10,10,0.018)';
 
       const a = ctx.createRadialGradient(w * 0.78, h * 0.16, 0, w * 0.78, h * 0.16, Math.max(w, h) * 0.62);
       a.addColorStop(0, warm);
@@ -75,7 +75,7 @@ export default function Sky() {
     <canvas
       ref={ref}
       aria-hidden="true"
-      className="solvane-sky pointer-events-none absolute inset-0 -z-10 h-full w-full bg-presentation"
+      className="tirrus-sky pointer-events-none absolute inset-0 -z-10 h-full w-full bg-presentation"
     />
   );
 }

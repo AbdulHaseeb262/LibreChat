@@ -157,7 +157,7 @@ export default function Root() {
                     } as React.CSSProperties
                   }
                 >
-                  {/* Solvane: one sky behind the whole app, so the glass panes
+                  {/* Tirrus: one sky behind the whole app, so the glass panes
                       above it have something to reveal. */}
                   <Sky />
                   <UnifiedSidebar />

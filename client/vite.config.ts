@@ -141,10 +141,10 @@ export default defineConfig(({ command }) => ({
       },
       includeAssets: [],
       manifest: {
-        // Solvane, not the upstream project: this is what an installed app is
+        // Tirrus, not the upstream project: this is what an installed app is
         // called on a home screen, and the teal was LibreChat's brand colour.
-        name: 'Solvane',
-        short_name: 'Solvane',
+        name: 'Tirrus',
+        short_name: 'Tirrus',
         description: 'One place to think with AI.',
         display: 'standalone',
         background_color: '#0f1712',

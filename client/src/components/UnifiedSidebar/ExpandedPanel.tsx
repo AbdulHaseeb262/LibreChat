@@ -147,7 +147,7 @@ function ExpandedPanel({
   const toggleSidebarAriaKey = useShortcutAriaKey('toggleSidebar');
 
   return (
-    <div className="flex h-full flex-shrink-0 flex-col gap-2 solvane-glass border-r border-border-light/60 px-2 py-2">
+    <div className="flex h-full flex-shrink-0 flex-col gap-2 tirrus-glass border-r border-border-light/60 px-2 py-2">
       <TooltipAnchor
         side="right"
         description={toggleSidebarHint}
@@ -167,15 +167,12 @@ function ExpandedPanel({
           </Button>
         }
       />
-      {/* Solvane: the brand at the top of the sidebar, in the serif. */}
+      {/* Tirrus: the brand at the top of the sidebar, in the serif. */}
       <div className="flex items-center gap-2 px-2 pb-1 pt-1 font-serif text-xl tracking-tight text-text-primary">
         <svg viewBox="0 0 64 64" aria-hidden="true" className="h-5 w-5">
-          <g fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
-            <g transform="rotate(-25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
-            <g transform="rotate(25 32 32)"><path d="M32 5 Q49 32 32 59 Q15 32 32 5 Z" /></g>
-          </g>
+          <path fillRule="evenodd" fill="currentColor" d="M3 32a19 19 0 1 0 38 0a19 19 0 1 0-38 0zM23 32a19 19 0 1 0 38 0a19 19 0 1 0-38 0z" />
         </svg>
-        <span>Solvane</span>
+        <span>Tirrus</span>
       </div>
       <NewChatButton setActive={setActive} />
       <div className="mx-2 border-b border-border-light" />

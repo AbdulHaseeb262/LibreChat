@@ -149,11 +149,11 @@
 
 html {
   --brand-purple: 126 34 206;
-  --presentation: 250 249 247;
-  --text-primary: 22 21 15;
-  --text-secondary: 74 72 64;
-  --text-secondary-alt: 87 84 75;
-  --text-tertiary: 138 135 124;
+  --presentation: 255 255 255;
+  --text-primary: 10 10 10;
+  --text-secondary: 63 63 60;
+  --text-secondary-alt: 82 82 78;
+  --text-tertiary: 116 116 111;
   --shimmer-dip: 129 130 134;
   --shimmer-dip-alpha: 0.18;
   --text-warning: var(--amber-700);
@@ -164,38 +164,38 @@ html {
   --accent-primary: 18 110 107;
   --accent-primary-hover: 10 79 83;
   --ring-primary: var(--gray-500);
-  --header-primary: 250 249 247;
-  --header-hover: 239 238 235;
-  --header-button-hover: 234 233 231;
-  --surface-active: 232 231 228;
-  --surface-active-alt: 234 233 231;
-  --surface-hover: 239 238 235;
-  --surface-hover-alt: 239 238 235;
+  --header-primary: 255 255 255;
+  --header-hover: 243 243 242;
+  --header-button-hover: 236 236 234;
+  --surface-active: 234 234 232;
+  --surface-active-alt: 236 236 234;
+  --surface-hover: 243 243 242;
+  --surface-hover-alt: 243 243 242;
   --surface-composer-hover: var(--gray-200);
-  --surface-primary: 250 249 247;
-  --surface-primary-alt: 242 240 235;
-  --surface-primary-contrast: 235 232 226;
-  --surface-secondary: 242 240 235;
-  --surface-secondary-alt: 235 232 226;
-  --surface-tertiary: 235 232 226;
-  --surface-tertiary-alt: 227 224 216;
+  --surface-primary: 255 255 255;
+  --surface-primary-alt: 248 248 247;
+  --surface-primary-contrast: 241 241 239;
+  --surface-secondary: 248 248 247;
+  --surface-secondary-alt: 241 241 239;
+  --surface-tertiary: 241 241 239;
+  --surface-tertiary-alt: 233 233 231;
   --surface-dialog: 255 255 255;
   --surface-overlay: var(--gray-500);
-  --surface-submit: 31 77 61;
-  --surface-submit-hover: 24 63 49;
+  --surface-submit: 10 10 10;
+  --surface-submit-hover: 45 45 45;
   --surface-destructive: var(--red-700);
   --surface-destructive-hover: var(--red-800);
-  --surface-chat: 250 249 247;
+  --surface-chat: 255 255 255;
   --surface-code: var(--surface-primary-alt);
   --surface-qr: var(--white);
-  --border-light: 234 233 231;
+  --border-light: 236 236 234;
   --border-light-alpha: 1;
-  --border-medium-alt: 227 226 224;
-  --border-medium: 227 226 224;
+  --border-medium-alt: 229 229 227;
+  --border-medium: 229 229 227;
   --border-medium-alpha: 1;
-  --border-heavy: 214 213 210;
+  --border-heavy: 213 213 210;
   --border-heavy-alpha: 1;
-  --border-xheavy: 195 194 191;
+  --border-xheavy: 192 192 188;
   --border-xheavy-alpha: 1;
   --border-destructive: var(--red-600);
   --status-success: var(--green-700);
@@ -257,11 +257,11 @@ html {
 }
 .dark {
   --brand-purple: 171 104 255;
-  --presentation: 15 23 18;
-  --text-primary: 237 234 226;
-  --text-secondary: 179 175 164;
-  --text-secondary-alt: 163 159 148;
-  --text-tertiary: 134 131 122;
+  --presentation: 10 10 10;
+  --text-primary: 245 245 243;
+  --text-secondary: 176 176 171;
+  --text-secondary-alt: 160 160 155;
+  --text-tertiary: 128 128 123;
   --shimmer-base: 255 255 255;
   --shimmer-base-alpha: 0.8;
   --shimmer-dip: 179 179 179;
@@ -273,35 +273,35 @@ html {
   --link-visited: 192 132 252;
   --accent-primary: 65 167 157;
   --accent-primary-hover: 109 200 185;
-  --header-primary: 15 23 18;
-  --header-hover: 27 35 30;
-  --header-button-hover: 34 42 37;
-  --surface-active: 37 44 39;
-  --surface-active-alt: 34 42 37;
-  --surface-hover: 27 35 30;
-  --surface-hover-alt: 27 35 30;
+  --header-primary: 10 10 10;
+  --header-hover: 26 26 25;
+  --header-button-hover: 32 32 31;
+  --surface-active: 36 36 35;
+  --surface-active-alt: 32 32 31;
+  --surface-hover: 26 26 25;
+  --surface-hover-alt: 26 26 25;
   --surface-composer-hover: var(--gray-600);
-  --surface-primary: 15 23 18;
-  --surface-primary-alt: 20 29 23;
-  --surface-primary-contrast: 26 37 30;
-  --surface-secondary: 20 29 23;
-  --surface-secondary-alt: 26 37 30;
-  --surface-tertiary: 26 37 30;
-  --surface-tertiary-alt: 33 45 37;
-  --surface-dialog: 23 33 25;
+  --surface-primary: 10 10 10;
+  --surface-primary-alt: 16 16 16;
+  --surface-primary-contrast: 22 22 21;
+  --surface-secondary: 16 16 16;
+  --surface-secondary-alt: 22 22 21;
+  --surface-tertiary: 22 22 21;
+  --surface-tertiary-alt: 30 30 29;
+  --surface-dialog: 20 20 19;
   --surface-overlay: 0 0 0;
-  --surface-submit: 47 125 95;
-  --surface-submit-hover: 55 145 110;
+  --surface-submit: 212 245 60;
+  --surface-submit-hover: 226 250 110;
   --surface-destructive: var(--red-800);
   --surface-destructive-hover: var(--red-900);
-  --surface-chat: 15 23 18;
+  --surface-chat: 10 10 10;
   --surface-code: var(--presentation);
   --surface-qr: var(--white);
-  --border-light: 29 37 32;
-  --border-medium-alt: 39 46 42;
-  --border-medium: 39 46 42;
-  --border-heavy: 58 65 61;
-  --border-xheavy: 77 83 80;
+  --border-light: 29 29 28;
+  --border-medium-alt: 40 40 39;
+  --border-medium: 40 40 39;
+  --border-heavy: 58 58 56;
+  --border-xheavy: 78 78 75;
   --border-destructive: var(--red-500);
   --status-success: var(--green-300);
   --status-success-subtle: var(--green-950);
@@ -2536,13 +2536,13 @@ html[data-input-modality='keyboard']
 }
 
 /* ===========================================================================
-   Solvane
+   Tirrus
    =========================================================================== */
 /* The sky lives inside the presentation wrapper (see Chat/Sky.tsx); the
    containers above it must not paint over it. */
-.solvane-sky { display: block; }
+.tirrus-sky { display: block; }
 
-/* You, in a soft bubble that fits its words. Solvane, plain on the page. */
+/* You, in a soft bubble that fits its words. Tirrus, plain on the page. */
 .user-turn .text-message {
   display: inline-flex;
   max-width: min(100%, 44rem);
@@ -2554,85 +2554,87 @@ html[data-input-modality='keyboard']
 .user-turn .text-message .markdown { width: auto; max-width: none; }
 .user-turn .text-message .markdown p { margin: 0; }
 .agent-turn > h2 { font-family: "Source Serif 4", "Iowan Old Style", Georgia, serif; font-weight: 400; font-size: 1.15rem; letter-spacing: -0.01em; color: rgb(var(--surface-submit)); }
-.dark .agent-turn > h2 { color: #7fc8a4; }
+.dark .agent-turn > h2 { color: #d4f53c; }
+/* Primary buttons hard-code white text; on dark mode's lime that must be ink. */
+.dark .bg-surface-submit, .dark .hover\:bg-surface-submit-hover:hover { color: #0a0a0a; }
 .user-turn > h2 { font-size: 0.8rem; font-weight: 500; color: rgb(var(--text-tertiary)); }
 
 /* The mark breathes while its reply is being generated. */
-@keyframes solvane-glow {
-  0%, 100% { filter: drop-shadow(0 0 0 rgba(127,200,164,0)); transform: scale(1); }
-  50% { filter: drop-shadow(0 0 8px rgba(127,200,164,0.95)) drop-shadow(0 0 18px rgba(47,125,95,0.6)); transform: scale(1.08); }
+@keyframes tirrus-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(212,245,60,0)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 8px rgba(212,245,60,0.95)) drop-shadow(0 0 18px rgba(10,10,10,0.35)); transform: scale(1.08); }
 }
-.solvane-glow { animation: solvane-glow 1.6s ease-in-out infinite; overflow: visible !important; }
+.tirrus-glow { animation: tirrus-glow 1.6s ease-in-out infinite; overflow: visible !important; }
 
 /* The status word: a light shimmer running through the text. */
-@keyframes solvane-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
-.solvane-thinking {
+@keyframes tirrus-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.tirrus-thinking {
   display: inline-block;
   font-size: 1rem;
   color: rgb(var(--text-tertiary));
-  background: linear-gradient(90deg, rgb(var(--text-tertiary)) 0%, rgb(var(--text-tertiary)) 35%, #7fc8a4 50%, rgb(var(--text-tertiary)) 65%, rgb(var(--text-tertiary)) 100%);
+  background: linear-gradient(90deg, rgb(var(--text-tertiary)) 0%, rgb(var(--text-tertiary)) 35%, rgb(var(--text-primary)) 50%, rgb(var(--text-tertiary)) 65%, rgb(var(--text-tertiary)) 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: solvane-shimmer 2.2s linear infinite;
+  animation: tirrus-shimmer 2.2s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  .solvane-glow, .solvane-thinking { animation: none; }
-  .solvane-thinking { -webkit-text-fill-color: currentColor; background: none; }
+  .tirrus-glow, .tirrus-thinking { animation: none; }
+  .tirrus-thinking { -webkit-text-fill-color: currentColor; background: none; }
 }
 
 /* "Thought for Ns · Model": measured time to the first word. Quiet. */
-.solvane-meta { margin: 0 0 0.35rem; font-size: 0.8rem; color: rgb(var(--text-tertiary)); letter-spacing: 0.01em; }
+.tirrus-meta { margin: 0 0 0.35rem; font-size: 0.8rem; color: rgb(var(--text-tertiary)); letter-spacing: 0.01em; }
 
 /* Mobile: the bar is quiet and clear of the notch; the composer clear of the
    home indicator; the send button always reachable. */
 @media (max-width: 767px) {
-  .solvane-mobile-bar { padding-top: env(safe-area-inset-top, 0px); backdrop-filter: none; }
+  .tirrus-mobile-bar { padding-top: env(safe-area-inset-top, 0px); backdrop-filter: none; }
   form:has(#prompt-textarea) { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); }
-  .solvane-plan { padding: 0.3rem 0.6rem; font-size: 0.7rem; }
+  .tirrus-plan { padding: 0.3rem 0.6rem; font-size: 0.7rem; }
   .user-turn .text-message { max-width: 88%; }
 }
 
 /* The mark turns slowly while it breathes. */
-@keyframes solvane-glow {
-  0%   { filter: drop-shadow(0 0 0 rgba(127,200,164,0)); transform: scale(1) rotate(0deg); }
-  50%  { filter: drop-shadow(0 0 8px rgba(127,200,164,0.95)) drop-shadow(0 0 18px rgba(47,125,95,0.6)); transform: scale(1.08) rotate(180deg); }
-  100% { filter: drop-shadow(0 0 0 rgba(127,200,164,0)); transform: scale(1) rotate(360deg); }
+@keyframes tirrus-glow {
+  0%   { filter: drop-shadow(0 0 0 rgba(212,245,60,0)); transform: scale(1) rotate(0deg); }
+  50%  { filter: drop-shadow(0 0 8px rgba(212,245,60,0.95)) drop-shadow(0 0 18px rgba(10,10,10,0.35)); transform: scale(1.08) rotate(180deg); }
+  100% { filter: drop-shadow(0 0 0 rgba(212,245,60,0)); transform: scale(1) rotate(360deg); }
 }
-.solvane-glow { animation-duration: 2.4s; }
+.tirrus-glow { animation-duration: 2.4s; }
 
 /* ===========================================================================
-   Solvane surfaces. Calm, in Claude's manner: flat panes, hairline separation,
+   Tirrus surfaces. Calm, in Claude's manner: flat panes, hairline separation,
    no blur and no drop shadows competing with the text. The one thing that was
    glass here — a blurred, translucent sidebar — belonged to a different
    reference (Codex) and read as decoration once there was nothing moving
    behind it to reveal.
    =========================================================================== */
-.solvane-glass {
+.tirrus-glass {
   background-color: rgb(var(--surface-primary-alt));
 }
 
 /* The composer is the only raised surface, and barely: a hairline that firms
    up on focus, and a shadow you notice only by its absence. */
-.solvane-composer {
+.tirrus-composer {
   background-color: rgb(var(--surface-dialog));
   box-shadow: 0 1px 2px rgba(22, 21, 15, 0.03);
 }
-.solvane-composer.solvane-composer-focus {
+.tirrus-composer.tirrus-composer-focus {
   box-shadow: 0 1px 2px rgba(22, 21, 15, 0.03), 0 0 0 3px rgba(31, 77, 61, 0.07);
 }
-.dark .solvane-composer {
+.dark .tirrus-composer {
   background-color: rgb(var(--surface-primary-alt));
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-.dark .solvane-composer.solvane-composer-focus {
+.dark .tirrus-composer.tirrus-composer-focus {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(127, 200, 164, 0.11);
 }
 
 /* Sidebar rows: soft radius, the active row a tint rather than a block. */
-.solvane-glass [data-testid='convo-item'] > *,
-.solvane-glass a[href^='/c/'] {
+.tirrus-glass [data-testid='convo-item'] > *,
+.tirrus-glass a[href^='/c/'] {
   border-radius: 10px;
 }
 
