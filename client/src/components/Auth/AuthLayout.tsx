@@ -64,12 +64,12 @@ function AuthLayout({
       <Banner />
       <BlinkAnimation active={isFetching}>
         {/* Tirrus lockup: the mark beside the name, not a lone bare glyph.
-            The GREEN mark on purpose — assets/logo.svg swaps its stroke on the
-            OS's prefers-color-scheme, so on this light auth page under a dark
-            OS it drew near-white on near-white and vanished. */}
+            The TILE mark on purpose (lime on ink) — assets/logo.svg swaps its
+            fill on the OS's prefers-color-scheme, so on a light page under a
+            dark OS it would vanish. ?v= busts the 48h cache on the old file. */}
         <div className="mt-10 flex w-full items-center justify-center gap-3">
           <img
-            src="/assets/logo-green.svg"
+            src="/assets/logo-green.svg?v=tirrus2"
             className="h-9 w-9"
             alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? 'Tirrus' })}
           />
